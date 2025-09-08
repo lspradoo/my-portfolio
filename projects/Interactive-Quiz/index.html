@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interactive Quiz about Sports in Poland</title>
+    <meta name="Interactive Quiz" content="Quiz about Sports in Poland" />
+    <link rel="stylesheet" href="style.css"
+  </head>
+  <body>
+    <header>
+      <h1>Interactive Quiz about Sports in Poland</h1>
+      <p class="h1p">
+        Test your knowledge about popular sports and athletes in Poland!
+      </p>
+    </header>
+    <main>
+      <!--Introduction-->
+      <section>
+        <h2>About this quiz</h2>
+        <p>
+          <strong>This quiz</strong> is designed to test your knowledge about
+          sports in Poland, such as <em>football, volleyball, speedway</em> and
+          more.
+        </p>
+        <p>
+          You will find different types of questions, including multiple choice,
+          text, date, and file upload. <br />
+        </p>
+      <!--Question 1: multiple choice-->
+      <section>
+        <h2>
+          Question 1: Which sport is considered the most popular in Poland?
+        </h2>
+        <form>
+          <input type="radio" value="Volleyball" id="p1a" name="pergunta1" />
+          <label for="p1a">Volleyball</label><br />
+          <input type="radio" value="Football" id="p1b" name="pergunta1" />
+          <label for="p1b">Football</label><br />
+          <input type="radio" value="Basketball" id="p1c" name="pergunta1" />
+          <label for="p1c">Basketball</label><br />
+          <input type="radio" value="Speedway" id="p1d" name="pergunta1" />
+          <label for="p1d">Speedway</label><br />
+        </form>
+      </section>
+      <!--Question 2: text-->
+      <section>
+        <h2>Question 2: Name the Polish football club based in Warsaw</h2>
+        <form>
+          <input
+            type="text"
+            id="p2"
+            name="pergunta2"
+            placeholder="Type your answer..."
+          />
+        </form>
+      </section>
+      <!--Question 3: password-->
+      <section>
+        <h2>Question 3: Write the name of a famous Polish athlete</h2>
+        <form>
+          <input
+            type="password"
+            id="p3"
+            name="pergunta3"
+            placeholder="Type an athlete's name..."
+          />
+        </form>
+      </section>
+      <!--Question 4: date-->
+      <section>
+        <h2>
+          Question 4: Poland hosted the UEFA Euro starting on June 8. Which year
+          was it?
+        </h2>
+        <form>
+          <input type="date" id="p4" name="pergunta4" />
+        </form>
+      </section>
+      <!--Question 5: multiple selection-->
+      <section>
+        <h2>Question 5: Which of these sports are popular in Poland?</h2>
+        <form>
+          <input type="checkbox" id="p5a" name="pergunta5" value="Football" />
+          <label for="p5a">Football</label>
+          <input type="checkbox" id="p5b" name="pergunta5" value="Volleyball" />
+          <label for="p5b">Volleyball</label>
+          <input type="checkbox" id="p5c" name="pergunta5" value="Ice Hockey" />
+          <label for="p5c">Ice Hockey</label>
+          <input type="checkbox" id="p5d" name="pergunta5" value="Cricket" />
+          <label for="p5d">Cricket</label>
+        </form>
+      </section>
+      <!--Question 6: file upload-->
+      <section>
+        <h2>
+          Question 6: Upload a photo or image of a famous Polish sports stadium
+          or arena
+        </h2>
+        <form>
+          <input type="file" id="p6" name="pergunta6" accept="image/*" />
+        </form>
+      </section>
+      <!--Question 7: dropdown-->
+      <section>
+        <h2>
+          Question 7: Select the type of sport most associated with Poland
+          internationally:
+        </h2>
+        <form>
+          <select name="pergunta7" id="p7">
+            <option value="Football">Football</option>
+            <option value="Volleyball">Volleyball</option>
+            <option value="Speedway">Speedway</option>
+            <option value="Handball">Handball</option>
+          </select>
+        </form>
+      </section>
+      <!--Question 8: image-->
+      <section>
+        <h2>Question 8: Which sport is represented in the image below?</h2>
+        <figure>
+          <img
+            src="https://vbm-media.s3.us-east-2.amazonaws.com/wp-content/uploads/2023/07/15043224/The-USAs-Jordan-Thompson-hits-against-the-triple-Poland-block-Volleyball-World-photo-%40shotbygomez.jpeg"
+            alt="Image of a sport"
+          /><br />
+          <figcaption>Figure 1: Image of a sport</figcaption>
+        </figure>
+        <input
+          type="text"
+          id="p8"
+          name="pergunta8"
+          placeholder="Type your answer..."
+        />
+      </section>
+      <!--Score Table-->
+      <section>
+        <h2>Score Table</h2>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Score</th>
+              <th>Evaluation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0-2</td>
+              <td>Don't give up! Keep learning about Polish sports.</td>
+            </tr>
+            <tr>
+              <td>3-4</td>
+              <td>
+                You can improve. Try studying more about popular sports in
+                Poland.
+              </td>
+            </tr>
+            <tr>
+              <td>5-7</td>
+              <td>Good! You know quite a lot about Polish sports.</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>
+                Excellent! You are very knowledgeable about sports in Poland.
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">Good luck next time! Study more to improve.</td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+      <!--Answers List-->
+      <section>
+        <h2>Check Your Answers</h2>
+        <details>
+          <summary>Click here to see the quiz answers</summary>
+          <ol>
+            <li>Football</li>
+            <li>Legia Warsaw</li>
+            <li>Robert Lewandowski</li>
+            <li>08/06/2012</li>
+            <li>Football, Volleyball, Ice Hockey</li>
+            <li>
+              Image of a famous Polish stadium (example: Stadion Narodowy in
+              Warsaw)
+            </li>
+            <li>Volleyball</li>
+            <li>Volleyball</li>
+          </ol>
+        </details>
+      </section>
+      <!--Feedback Form-->
+      <section>
+        <h2>Give us your feedback</h2>
+        <form>
+          <fieldset>
+            <legend>Contact Information</legend>
+            <label for="nome">Name:</label>
+            <input type="text" id="nome" name="nome" /><br />
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" /><br />
+            <label for="comentarios">Comments:</label><br />
+            <textarea
+              id="comentarios"
+              name="comentarios"
+              rows="4"
+              cols="50"
+              placeholder="Type your comments here"
+            ></textarea
+            ><br />
+            <button onclick="alert('FEEDBACK SENT')">Send Feedback</button>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p class="footer">&copy Sports Quiz in Poland. All rights reserved</p>
+      <p class="footer">
+        To know more about me
+        <a href="https://github.com/lspradoo" target="_blank">click here</a>
+      </p>
+    </footer>
+  </body>
+</html>
