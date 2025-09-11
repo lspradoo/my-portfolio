@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotação de Moedas</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5faff, #e3f2fd);
+            color: #333;
+            padding: 15px;
+            border-radius: 10px;
+            width: 360px;
+            height: 500px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            animation: fadeIn 0.5s ease-in-out;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1565C0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        h1:hover {
+            transform: scale(1.05);
+            color: #003c8f;
+        }
+
+        p {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 5px; /* Removido o espaçamento entre as linhas */
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            justify-items: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .buttons button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border: 2px solid #1565C0;
+            border-radius: 12px;
+            background-color: #ffffff;
+            color: #1565C0;
+            cursor: pointer;
+            transition: all 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 85px;
+            height: 40px;
+        }
+
+        .buttons button:hover {
+            background-color: #1565C0;
+            color: #ffffff;
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .buttons button img {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+        }
+
+        .values {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #dollar-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1565C0;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.5s ease-in-out;
+            height: 40px;
+            line-height: 40px;
+            display: inline-block;
+        }
+
+        #percentage-change {
+            font-size: 14px;
+            font-weight: bold;
+            margin-left: 5px;
+            display: inline-block;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        input[type="number"] {
+            width: 270px;
+            height: 35px;
+            padding: 0;
+            font-size: 16px;
+            border: 2px solid #1565C0;
+            border-radius: 10px;
+            outline: none;
+            margin-bottom: 15px;
+            text-align: center;
+            line-height: 35px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #convert-button {
+            width: 270px;
+            height: 35px;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: #1565C0;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        #convert-button:hover {
+            background-color: #003c8f;
+            transform: translateY(-3px);
+        }
+
+        #converted-value {
+            font-size: 18px;
+            color: #1565C0;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+            margin-top: 10px;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        footer {
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        #share-button, #coffee-button {
+            position: fixed;
+            bottom: 20px;
+            background-color: transparent;
+            color: white;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: none;
+            z-index: 1000;
+        }
+
+        #share-button {
+            right: 20px;
+        }
+
+        #coffee-button {
+            left: 20px;
+        }
+
+        #share-button img, #coffee-button img {
+            width: 35px;
+            height: 35px;
+        }
+
+        #share-button:hover, #coffee-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Toast Notification Style */
+    .toast {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: rgba(76, 175, 80, 0.7); /* Verde suave com transparência */
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+        opacity: 0;
+    }
+
+    .toast.show {
+        visibility: visible;
+        opacity: 1;
+        animation: fadeInOut 4s ease-in-out;
+    }
+
+    @keyframes fadeInOut {
+        0% {
+            bottom: 30px;
+            opacity: 0;
+        }
+        5% {
+            bottom: 30px;
+            opacity: 1;
+        }
+        90% {
+            bottom: 30px;
+            opacity: 1;
+        }
+        100% {
+            bottom: 0px;
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+<body>
+    <h1>Cotação de Moedas para Real</h1>
+    <p>Selecione uma moeda e veja a cotação atual dela em R$</p>
+    <div class="buttons">
+        <button id="usd"><img src="icons/usd.png" alt="USD">USD</button>
+        <button id="eur"><img src="icons/eur.png" alt="EUR">EUR</button>
+        <button id="gbp"><img src="icons/gbp.png" alt="GBP">GBP</button>
+        <button id="inr"><img src="icons/inr.png" alt="INR">INR</button>
+        <button id="chf"><img src="icons/chf.png" alt="CHF">CHF</button>
+        <button id="btc"><img src="icons/btc.png" alt="BTC">BTC</button>
+        <button id="jpy"><img src="icons/jpy.png" alt="JPY">JPY</button>
+        <button id="aud"><img src="icons/aud.png" alt="AUD">AUD</button>
+        <button id="cad"><img src="icons/cad.png" alt="CAD">CAD</button>
+    </div>
+    <div class="values">
+        <div id="dollar-value">Selecione uma Moeda</div>
+        <span id="percentage-change"></span>
+        <input type="number" id="currency-input" placeholder="Digite o valor">
+        <button id="convert-button">R$ para Moeda Selecionada</button> 
+        <div id="converted-value"></div>
+        <div class="best-worst">
+            <p>Menor cotação de hoje: <span id="best-value">Carregando...</span></p>
+            <p>Maior cotação de hoje: <span id="worst-value">Carregando...</span></p>
+        </div>
+    </div>
+    <footer>Avalie a extensão na loja :)</footer>
+    <button id="share-button">
+        <img src="icons/share.png" alt="Copiar Cotação">
+    </button>
+    <button id="coffee-button">
+        <img src="icons/coffee-cup.png" alt="Buy Me a Coffee">
+    </button>
+
+    <div id="toast-message" class="toast"></div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
