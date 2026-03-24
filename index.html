@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Lucas Prado - Desenvolvedor com DNA de Marketing">
+    
+    <meta property="og:title" content="Lucas Prado | Dev & Estratégia">
+    <meta property="og:description" content="Sou dev, trago o DNA do Marketing para o mundo do código. Veja meus projetos e extensões.">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/210725531?v=4">
+    <meta property="og:type" content="website">
+    
+    <title>Lucas Prado | Dev & Estratégia</title>
+    
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/210725531?v=4&s=128&r=50" type="image/png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="lang-switcher">
+        <label for="lang-select" data-i18n="lang_label"><i class="fas fa-globe"></i> Idioma:</label>
+        <div class="custom-select-wrapper">
+            <select id="lang-select" onchange="changeLanguage(this.value)" aria-label="Selecione o idioma">
+                <option value="pt">Português (PT)</option>
+                <option value="en">English (EN)</option>
+                <option value="es">Español (ES)</option>
+                <option value="pl">Polski (PL)</option>
+            </select>
+        </div>
+    </div>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <div class="profile-image-container">
+                <img src="https://avatars.githubusercontent.com/u/210725531?v=4" alt="Foto de Lucas Prado" class="profile-img">
+            </div>
+            
+            <h1 data-i18n="hero_title">Menos "erro 404", mais <span class="purple-text">estratégia</span>.</h1>
+            
+            <h2 class="hero-subtitle" data-i18n="hero_subtitle">Sou dev, tenho 27 anos e trago o DNA do Marketing para o mundo do código. Desenvolvo sites e extensões para o Chrome focados em resolver problemas reais e encantar usuários.</h2>
+            
+            <p class="bio" data-i18n="hero_bio">Acredito que a programação é o superpoder de transformar o "impossível" em algo clicável. Com a paciência de um dev e o olhar de um marqueteiro, eu crio projetos que não apenas funcionam, mas se destacam.</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/lspradoo" target="_blank" class="btn-social"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://br.linkedin.com/in/lsprado" target="_blank" class="btn-social"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+            <a href="#projetos" class="btn-cta" data-i18n="btn_projects">Ver meus trabalhos <i class="fas fa-arrow-down"></i></a>
+        </div>
+    </header>
+
+    <section id="projetos" class="projects-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="section_title">Coisas que eu construí <span class="purple-dot">.</span></h2>
+            
+            <h3 class="sub-section-title" data-i18n="sites_title"><i class="fas fa-laptop-code purple-text"></i> Sites Corporativos</h3>
+            <div class="projects-grid">
+                
+                <article class="project-card">
+                    <div class="card-header">
+                        <i class="fas fa-chart-line purple-icon"></i>
+                        <h3>InnovBusiness</h3>
+                    </div>
+                    <p data-i18n="proj1_desc">Site institucional desenvolvido para a InnovBusiness, um escritório de contabilidade. Foco em apresentar serviços corporativos de forma clara e profissional.</p>
+                    <div class="card-footer">
+                        <a href="https://www.innovbusiness.com.br/" target="_blank" class="btn-project" data-i18n="btn_visit">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="card-header">
+                        <i class="fas fa-balance-scale purple-icon"></i>
+                        <h3>Oliveira & Sales</h3>
+                    </div>
+                    <p data-i18n="proj2_desc">Plataforma web para o escritório de advocacia Oliveira & Sales. Design focado em transmitir credibilidade e facilitar o contato com os advogados.</p>
+                    <div class="card-footer">
+                        <a href="https://www.oliveirasales.com.br/" target="_blank" class="btn-project" data-i18n="btn_visit">Visitar Site <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+
+            </div>
+
+            <h3 class="sub-section-title extension-title" data-i18n="ext_title"><i class="fas fa-puzzle-piece purple-text"></i> Extensões para Navegador</h3>
+            <div class="projects-grid">
+                
+                <article class="project-card special-card">
+                    <div class="card-header">
+                        <i class="fab fa-chrome purple-icon" style="font-size: 2rem;"></i>
+                        <h3 data-i18n="proj3_title">Câmbio Real-Time</h3>
+                    </div>
+                    <p data-i18n="proj3_desc">Ferramenta para acesso rápido e preciso a cotações globais, sem impactar o navegador.</p>
+                    
+                    <ul class="feature-list">
+                        <li data-i18n="feat1"><i class="fas fa-check purple-text"></i> <strong>Smart Badge:</strong> Salva sua moeda no ícone.</li>
+                        <li data-i18n="feat2"><i class="fas fa-check purple-text"></i> <strong>Conversão:</strong> Direto no botão direito.</li>
+                        <li data-i18n="feat3"><i class="fas fa-check purple-text"></i> <strong>12 Moedas:</strong> USD, EUR, PLN, BTC e mais.</li>
+                    </ul>
+
+                    <div class="card-footer special-footer">
+                        <a href="https://chromewebstore.google.com/detail/c%C3%A2mbio-em-tempo-real/ndkfobfkdpmlmkmnohgeibiaokgbioid" target="_blank" class="btn-project btn-featured" data-i18n="btn_store">Baixar Extensão <i class="fas fa-download"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card special-card">
+                    <div class="card-header">
+                        <i class="fas fa-text-width purple-icon" style="font-size: 2rem;"></i>
+                        <h3 data-i18n="proj4_title">SmartCase Pro (Format)</h3>
+                    </div>
+                    <p data-i18n="proj4_desc">A mais completa ferramenta de formatação. Converta textos, limpe dados e oculte informações sensíveis. 100% local e seguro.</p>
+                    
+                    <ul class="feature-list">
+                        <li data-i18n="feat4_1"><i class="fas fa-code purple-text"></i> <strong>Dev Tools:</strong> camelCase, snake_case.</li>
+                        <li data-i18n="feat4_2"><i class="fas fa-shield-alt purple-text"></i> <strong>Privacidade:</strong> Oculte dados com um clique.</li>
+                        <li data-i18n="feat4_3"><i class="fas fa-language purple-text"></i> <strong>Global:</strong> Tradução nativa para 6 idiomas.</li>
+                    </ul>
+
+                    <div class="card-footer special-footer">
+                        <a href="https://chromewebstore.google.com/detail/smartcase-pro/gahdkojiepppdichbadjokmbccmapojh" target="_blank" class="btn-project btn-featured" data-i18n="btn_store">Baixar Extensão <i class="fas fa-download"></i></a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="game-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="game_title" style="margin-bottom: 1rem;">Pausa para o Corgi <span class="purple-dot">.</span></h2>
+            <p class="bio" data-i18n="game_desc" style="margin-bottom: 2rem;">Cansado de ver código? Eu fiz esse joguinho estilo "Dino Run" do Chrome, mas com um Corgi (porque Corgis são melhores). Tente bater seu recorde!</p>
+            
+            <div class="game-container">
+                <iframe src="https://lspradoo.github.io/Corgi_Game/" title="Corgi Game" scrolling="no"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p data-i18n="footer">Desenvolvido por Lucas Prado © 2026. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
