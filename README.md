@@ -2,8 +2,7 @@
 
 > "Less '404 error', more strategy."
 
-![Portfolio Preview](https://via.placeholder.com/1200x630/0f0e17/7f5af0?text=Add+a+Screenshot+of+Your+Site+Here)
-*Live project link: [Insert your Vercel/GitHub Pages link here]*
+*Live project link: [https://lspradoo.github.io/](https://lspradoo.github.io/)*
 
 ## About the Project
 
@@ -25,7 +24,7 @@ The main differentiator of this project is the conscious choice to use Vanilla J
 * **CSS3:** Flexbox, CSS Grid, Custom Properties, and animations (Zero frameworks like Tailwind or Bootstrap).
 * **JavaScript (ES6+):** DOM manipulation, event listeners, and language routing logic (Zero React/Vue).
 * **Font Awesome:** Lightweight vector icons.
-* **Hosting:** [Vercel / GitHub Pages - *choose which one you used*]
+* **Hosting:** GitHub Pages
 
 ## How to run locally
 
@@ -33,4 +32,4 @@ The project has no NPM dependencies or complex build processes. To run it:
 
 1. Clone the repository:
 ```bash
-git clone [https://github.com/lspradoo/your-repository-name.git](https://github.com/lspradoo/your-repository-name.git)
+git clone [https://github.com/lspradoo/lspradoo.github.io.git](https://github.com/lspradoo/lspradoo.github.io.git)
