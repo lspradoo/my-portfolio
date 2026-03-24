@@ -322,44 +322,6 @@ a { text-decoration: none; }
     text-shadow: none !important;
 }
 
-/* Estilos do "Trabalho em Andamento" (WIP) - Mantive caso faça outro projeto futuro! */
-.wip-card {
-    border-color: var(--text-gray);
-}
-
-.wip-card i.purple-icon, .wip-card i.purple-text {
-    color: var(--text-gray);
-}
-
-.wip-badge {
-    position: absolute;
-    top: 15px;
-    right: -35px;
-    background-color: var(--purple-primary);
-    color: white;
-    padding: 5px 40px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    transform: rotate(45deg);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    z-index: 2;
-}
-
-.btn-disabled {
-    background-color: #2a2a35;
-    color: var(--text-gray) !important;
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    display: inline-block;
-    cursor: not-allowed;
-    border: 1px dashed var(--text-gray);
-}
-
-.btn-disabled:hover {
-    text-shadow: none !important;
-}
-
 /* ================= SEÇÃO DO JOGO ================= */
 .game-section {
     padding: 4rem 0;
@@ -393,6 +355,36 @@ footer {
     color: var(--text-gray);
 }
 
+/* ================= BOTÃO WHATSAPP FLUTUANTE (ROXO) ================= */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--purple-primary); /* Usando o seu roxo! */
+    color: var(--text-light);
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px var(--purple-glow); /* Glow com o seu roxo */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.whatsapp-btn i {
+    font-size: 1.3rem;
+}
+
+.whatsapp-btn:hover {
+    background-color: #6b44d6; /* O mesmo roxo escuro do botão principal */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--purple-glow);
+    color: var(--text-light);
+}
+
 /* ================= RESPONSIVO ================= */
 @media (max-width: 768px) {
     .lang-switcher {
@@ -405,6 +397,14 @@ footer {
     .section-title { font-size: 2rem; }
     
     .game-container iframe { height: 450px; } 
+
+    /* Ajuste do botão do WhatsApp no celular */
+    .whatsapp-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }
 
 /* ================= SCROLLBAR CUSTOMIZADA ================= */
