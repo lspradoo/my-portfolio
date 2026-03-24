@@ -2,7 +2,7 @@
 
 > "Less '404 error', more strategy."
 
-*Live project link: [https://lspradoo.github.io/](https://lspradoo.github.io/)*
+*Live project link: [https://lsprado-dev.github.io/](https://lsprado-dev.github.io/)*
 
 ## About the Project
 
@@ -32,4 +32,4 @@ The project has no NPM dependencies or complex build processes. To run it:
 
 1. Clone the repository:
 ```bash
-git clone [https://github.com/lspradoo/lspradoo.github.io.git](https://github.com/lspradoo/lspradoo.github.io.git)
+git clone [https://github.com/lsprado-dev/lsprado-dev.github.io.git](https://github.com/lsprado-dev/lsprado-dev.github.io.git)
