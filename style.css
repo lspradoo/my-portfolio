@@ -437,3 +437,14 @@ footer {
 ::-webkit-scrollbar-thumb:hover {
     background: #6b44d6;
 }
+
+/* Regra específica para o ícone da Oliveira */
+#icon-oliveira {
+    /* brightness(0) invert(1) transforma ícone escuro em branco */
+    filter: brightness(0) invert(1) drop-shadow(0 0 5px var(--purple-glow)) !important;
+}
+
+/* Garante que ele volte à cor original com glow roxo quando passar o mouse no card */
+.project-card:hover #icon-oliveira {
+    filter: grayscale(0%) brightness(1.2) drop-shadow(0 0 15px var(--purple-primary)) !important;
+}
