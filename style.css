@@ -80,10 +80,8 @@ a { text-decoration: none; }
     outline: none;
     transition: var(--transition);
     appearance: none;
-    /* Remove a seta nativa feia */
     -webkit-appearance: none;
     -moz-appearance: none;
-    /* Seta customizada em SVG usando a cor purple-primary */
     background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%237f5af0%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
     background-position: right 10px top 50%;
@@ -116,7 +114,6 @@ a { text-decoration: none; }
     max-width: 800px;
 }
 
-/* A Foto Redonda com Glow */
 .profile-image-container {
     margin-bottom: 2rem;
 }
@@ -136,7 +133,6 @@ a { text-decoration: none; }
     box-shadow: 0 0 50px var(--purple-primary);
 }
 
-/* Estilos do Novo Texto */
 .hero h1 {
     font-size: 2.8rem;
     font-weight: 700;
@@ -159,7 +155,6 @@ a { text-decoration: none; }
     margin: 0 auto 2.5rem auto;
 }
 
-/* Botões */
 .btn-cta, .btn-social {
     display: inline-block;
     padding: 0.8rem 2rem;
@@ -205,7 +200,6 @@ a { text-decoration: none; }
     position: relative;
 }
 
-/* Subtítulos de Seção */
 .sub-section-title {
     font-size: 1.5rem;
     font-weight: 600;
@@ -227,7 +221,6 @@ a { text-decoration: none; }
     margin-bottom: 4rem;
 }
 
-/* Cards dos Projetos (Padrão) */
 .project-card {
     background-color: var(--bg-secondary);
     padding: 2rem;
@@ -246,13 +239,36 @@ a { text-decoration: none; }
     box-shadow: 0 10px 30px -10px var(--purple-glow);
 }
 
+/* ================= CABEÇALHO DOS CARDS E ÍCONES ================= */
 .card-header {
-    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre o ícone e o título */
+    margin-bottom: 1.2rem;
 }
 
 .card-header h3 {
-    margin-top: 1rem;
+    margin-top: 0; /* Zera a margem pra alinhar perfeito com o ícone */
     font-size: 1.4rem;
+    line-height: 1.2;
+}
+
+/* A Mágica do Ícone */
+.project-icon {
+    width: 48px;  /* Largura fixa cravada */
+    height: 48px; /* Altura fixa cravada */
+    object-fit: contain; /* Encaixa a imagem sem deformar */
+    flex-shrink: 0; /* Impede o ícone de ser esmagado pelo título */
+    
+    /* A Máscara Roxa Cyberpunk */
+    filter: grayscale(100%) sepia(100%) hue-rotate(220deg) saturate(300%) brightness(0.9) drop-shadow(0 0 5px var(--purple-glow));
+    transition: var(--transition);
+}
+
+/* Efeito Hover: O ícone "acorda" quando passa o mouse no card inteiro */
+.project-card:hover .project-icon {
+    filter: grayscale(0%) drop-shadow(0 0 15px var(--purple-primary)); /* Devolve a cor original com glow roxo */
+    transform: scale(1.1) rotate(-5deg);
 }
 
 .project-card p {
@@ -278,9 +294,7 @@ a { text-decoration: none; }
     margin-left: 5px;
 }
 
-/* ================= EXTENSÕES, CARDS ESPECIAIS E "EM BREVE" ================= */
-
-/* Cards das extensões com destaque */
+/* ================= EXTENSÕES, CARDS ESPECIAIS ================= */
 .special-card {
     border: 2px solid var(--purple-primary);
     background: linear-gradient(145deg, var(--bg-secondary) 0%, #110f18 100%);
@@ -288,7 +302,6 @@ a { text-decoration: none; }
     overflow: hidden;
 }
 
-/* Lista de Funcionalidades */
 .feature-list {
     list-style: none;
     margin: 1.5rem 0;
@@ -299,13 +312,13 @@ a { text-decoration: none; }
     margin-bottom: 0.8rem;
     font-size: 0.90rem;
     color: var(--text-light);
-    display: block; /* Aqui está o segredo que arruma a formatação! */
+    display: block; 
     line-height: 1.5;
 }
 
 .feature-list strong { 
     color: var(--text-light); 
-    margin-right: 5px; /* Dá um respiro pequeno entre o título e a descrição */
+    margin-right: 5px; 
 }
 
 .special-footer { margin-top: auto; padding-top: 1rem; }
@@ -358,19 +371,18 @@ footer {
     color: var(--text-gray);
 }
 
-/* ================= BOTÃO WHATSAPP FLUTUANTE (ROXO) ================= */
+/* ================= BOTÃO WHATSAPP FLUTUANTE ================= */
 .whatsapp-btn {
     position: fixed;
     bottom: 30px;
     right: 30px;
     background-color: var(--purple-primary);
-    /* Usando o seu roxo! */
     color: var(--text-light);
     padding: 12px 24px;
     border-radius: 50px;
     font-weight: 600;
     font-size: 1rem;
-    box-shadow: 0 4px 15px var(--purple-glow); /* Glow com o seu roxo */
+    box-shadow: 0 4px 15px var(--purple-glow); 
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -383,7 +395,7 @@ footer {
 }
 
 .whatsapp-btn:hover {
-    background-color: #6b44d6; /* O mesmo roxo escuro do botão principal */
+    background-color: #6b44d6; 
     transform: translateY(-5px);
     box-shadow: 0 8px 25px var(--purple-glow);
     color: var(--text-light);
@@ -402,7 +414,6 @@ footer {
     
     .game-container iframe { height: 450px; } 
 
-    /* Ajuste do botão do WhatsApp no celular */
     .whatsapp-btn {
         bottom: 20px;
         right: 20px;
