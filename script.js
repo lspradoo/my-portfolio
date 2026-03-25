@@ -1,4 +1,4 @@
-// ================= DICIONÁRIO DE TRADUÇÕES =================
+ // ================= DICIONÁRIO DE TRADUÇÕES =================
 const translations = {
     pt: {
         lang_label: "<i class='fas fa-globe'></i> Idioma:",
@@ -23,6 +23,13 @@ const translations = {
         feat4_1: "<strong>Dev Tools:</strong> camelCase, snake_case.",
         feat4_2: "<strong>Privacidade:</strong> Oculte dados com um clique.",
         feat4_3: "<strong>Global:</strong> Tradução nativa para 6 idiomas.",
+        // NOVO PROJETO: CLIPOCTAPLUS
+        proj5_title: "ClipOctaplus (Clipboard)",
+        proj5_desc: "O seu histórico de área de transferência organizado, focado em privacidade, 100% local e com um cofre seguro.",
+        feat5_1: "<strong>Cofre Seguro:</strong> Proteção com senha (PIN).",
+        feat5_2: "<strong>Privacidade:</strong> Código roda 100% offline.",
+        feat5_3: "<strong>Faxina:</strong> Limpeza automática inteligente.",
+        
         game_title: "Pausa para o Corgi <span class='purple-dot'>.</span>",
         game_desc: "Cansado de ver código? Eu fiz esse joguinho estilo \"Dino Run\" do Chrome, mas com um Corgi (porque Corgis são melhores). Meu recorde é <strong>829</strong>. Duvido você bater!",
         footer: "Desenvolvido por Lucas Prado © 2026. Todos os direitos reservados.",
@@ -52,6 +59,13 @@ const translations = {
         feat4_1: "<strong>Dev Tools:</strong> camelCase, snake_case.",
         feat4_2: "<strong>Privacy:</strong> Redact data in one click.",
         feat4_3: "<strong>Global:</strong> Native in 6 languages.",
+        // NOVO PROJETO: CLIPOCTAPLUS
+        proj5_title: "ClipOctaplus (Clipboard)",
+        proj5_desc: "Your clipboard history organized, privacy-focused, 100% local, and equipped with a secure vault.",
+        feat5_1: "<strong>Secure Vault:</strong> PIN-protected area.",
+        feat5_2: "<strong>Privacy:</strong> Runs 100% offline.",
+        feat5_3: "<strong>Auto-clean:</strong> Smart data cleanup.",
+        
         game_title: "Corgi Break <span class='purple-dot'>.</span>",
         game_desc: "Tired of looking at code? I made this Chrome \"Dino Run\" style game, but with a Corgi (because Corgis are better). My high score is <strong>829</strong>. I dare you to beat it!",
         footer: "Developed by Lucas Prado © 2026. All rights reserved.",
@@ -81,6 +95,13 @@ const translations = {
         feat4_1: "<strong>Herramientas Dev:</strong> camelCase, snake_case.",
         feat4_2: "<strong>Privacidad:</strong> Oculta datos con un clic.",
         feat4_3: "<strong>Global:</strong> Nativo en 6 idiomas.",
+        // NOVO PROJETO: CLIPOCTAPLUS
+        proj5_title: "ClipOctaplus (Portapapeles)",
+        proj5_desc: "Tu historial de portapapeles organizado, centrado en la privacidad, 100% local y con una bóveda segura.",
+        feat5_1: "<strong>Bóveda Segura:</strong> Área con código PIN.",
+        feat5_2: "<strong>Privacidad:</strong> Funciona 100% offline.",
+        feat5_3: "<strong>Limpieza:</strong> Borrado automático inteligente.",
+        
         game_title: "Pausa para el Corgi <span class='purple-dot'>.</span>",
         game_desc: "¿Cansado de ver código? Hice este juego al estilo \"Dino Run\" de Chrome, pero con un Corgi (porque los Corgis son mejores). Mi récord es <strong>829</strong>. ¡Te reto a superarlo!",
         footer: "Desarrollado por Lucas Prado © 2026. Todos los derechos reservados.",
@@ -110,6 +131,13 @@ const translations = {
         feat4_1: "<strong>Narzędzia Dev:</strong> camelCase, snake_case.",
         feat4_2: "<strong>Prywatność:</strong> Ukryj dane jednym kliknięciem.",
         feat4_3: "<strong>Globalne:</strong> 6 języków, w tym polski.",
+        // NOVO PROJETO: CLIPOCTAPLUS
+        proj5_title: "ClipOctaplus (Schowek)",
+        proj5_desc: "W 100% lokalny, bezpieczny menedżer schowka dbający o prywatność. Zapisuj teksty z dostępem do sejfu.",
+        feat5_1: "<strong>Bezpieczny Sejf:</strong> Ochrona kodem PIN.",
+        feat5_2: "<strong>Prywatność:</strong> Działa 100% offline.",
+        feat5_3: "<strong>Czyszczenie:</strong> Inteligentne usuwanie danych.",
+        
         game_title: "Przerwa na Corgi <span class='purple-dot'>.</span>",
         game_desc: "Zmęczony patrzeniem na kod? Zrobiłem tę grę w stylu \"Dino Run\" z Chrome, ale z Corgi (bo Corgi są lepsze). Mój rekord to <strong>829</strong>. Ciekawe, czy go pobijesz!",
         footer: "Zaprojektowane i stworzone przez Lucas Prado © 2026. Wszelkie prawa zastrzeżone.",
