@@ -1,4 +1,4 @@
- // ================= DICIONÁRIO DE TRADUÇÕES =================
+// ================= DICIONÁRIO DE TRADUÇÕES =================
 const translations = {
     pt: {
         lang_label: "<i class='fas fa-globe'></i> Idioma:",
@@ -25,10 +25,10 @@ const translations = {
         feat4_3: "<strong>Global:</strong> Tradução nativa para 6 idiomas.",
         // NOVO PROJETO: CLIPOCTAPLUS
         proj5_title: "ClipOctaplus (Clipboard)",
-        proj5_desc: "O seu histórico de área de transferência organizado, focado em privacidade, 100% local e com um cofre seguro.",
-        feat5_1: "<strong>Cofre Seguro:</strong> Proteção com senha (PIN).",
-        feat5_2: "<strong>Privacidade:</strong> Código roda 100% offline.",
-        feat5_3: "<strong>Faxina:</strong> Limpeza automática inteligente.",
+        proj5_desc: "Gerenciador de área de transferência focado em privacidade e produtividade. Salva seu histórico 100% localmente.",
+        feat5_1: "<strong>Histórico Automático:</strong> Salva textos e imagens copiados.",
+        feat5_2: "<strong>Cofre Seguro:</strong> Proteção de itens com senha (PIN).",
+        feat5_3: "<strong>Privacidade:</strong> Roda 100% offline e sem rastreio.",
         
         game_title: "Pausa para o Corgi <span class='purple-dot'>.</span>",
         game_desc: "Cansado de ver código? Eu fiz esse joguinho estilo \"Dino Run\" do Chrome, mas com um Corgi (porque Corgis são melhores). Meu recorde é <strong>829</strong>. Duvido você bater!",
@@ -61,10 +61,10 @@ const translations = {
         feat4_3: "<strong>Global:</strong> Native in 6 languages.",
         // NOVO PROJETO: CLIPOCTAPLUS
         proj5_title: "ClipOctaplus (Clipboard)",
-        proj5_desc: "Your clipboard history organized, privacy-focused, 100% local, and equipped with a secure vault.",
-        feat5_1: "<strong>Secure Vault:</strong> PIN-protected area.",
-        feat5_2: "<strong>Privacy:</strong> Runs 100% offline.",
-        feat5_3: "<strong>Auto-clean:</strong> Smart data cleanup.",
+        proj5_desc: "Clipboard manager focused on privacy and productivity. Saves your history 100% locally.",
+        feat5_1: "<strong>Auto History:</strong> Saves copied texts and images.",
+        feat5_2: "<strong>Secure Vault:</strong> PIN-protected item area.",
+        feat5_3: "<strong>Privacy:</strong> Runs 100% offline, no tracking.",
         
         game_title: "Corgi Break <span class='purple-dot'>.</span>",
         game_desc: "Tired of looking at code? I made this Chrome \"Dino Run\" style game, but with a Corgi (because Corgis are better). My high score is <strong>829</strong>. I dare you to beat it!",
@@ -97,10 +97,10 @@ const translations = {
         feat4_3: "<strong>Global:</strong> Nativo en 6 idiomas.",
         // NOVO PROJETO: CLIPOCTAPLUS
         proj5_title: "ClipOctaplus (Portapapeles)",
-        proj5_desc: "Tu historial de portapapeles organizado, centrado en la privacidad, 100% local y con una bóveda segura.",
-        feat5_1: "<strong>Bóveda Segura:</strong> Área con código PIN.",
-        feat5_2: "<strong>Privacidad:</strong> Funciona 100% offline.",
-        feat5_3: "<strong>Limpieza:</strong> Borrado automático inteligente.",
+        proj5_desc: "Gestor de portapapeles centrado en la privacidad y productividad. Guarda tu historial 100% localmente.",
+        feat5_1: "<strong>Historial Automático:</strong> Guarda textos e imágenes.",
+        feat5_2: "<strong>Bóveda Segura:</strong> Área protegida con PIN.",
+        feat5_3: "<strong>Privacidad:</strong> Funciona 100% offline, sin rastreo.",
         
         game_title: "Pausa para el Corgi <span class='purple-dot'>.</span>",
         game_desc: "¿Cansado de ver código? Hice este juego al estilo \"Dino Run\" de Chrome, pero con un Corgi (porque los Corgis son mejores). Mi récord es <strong>829</strong>. ¡Te reto a superarlo!",
@@ -133,10 +133,10 @@ const translations = {
         feat4_3: "<strong>Globalne:</strong> 6 języków, w tym polski.",
         // NOVO PROJETO: CLIPOCTAPLUS
         proj5_title: "ClipOctaplus (Schowek)",
-        proj5_desc: "W 100% lokalny, bezpieczny menedżer schowka dbający o prywatność. Zapisuj teksty z dostępem do sejfu.",
-        feat5_1: "<strong>Bezpieczny Sejf:</strong> Ochrona kodem PIN.",
-        feat5_2: "<strong>Prywatność:</strong> Działa 100% offline.",
-        feat5_3: "<strong>Czyszczenie:</strong> Inteligentne usuwanie danych.",
+        proj5_desc: "Menedżer schowka zoptymalizowany pod kątem prywatności i produktywności. Zapisuje historię w 100% lokalnie.",
+        feat5_1: "<strong>Historia:</strong> Auto-zapis tekstów i obrazów.",
+        feat5_2: "<strong>Bezpieczny Sejf:</strong> Obszar chroniony kodem PIN.",
+        feat5_3: "<strong>Prywatność:</strong> Działa 100% offline, bez śledzenia.",
         
         game_title: "Przerwa na Corgi <span class='purple-dot'>.</span>",
         game_desc: "Zmęczony patrzeniem na kod? Zrobiłem tę grę w stylu \"Dino Run\" z Chrome, ale z Corgi (bo Corgi są lepsze). Mój rekord to <strong>829</strong>. Ciekawe, czy go pobijesz!",
@@ -148,7 +148,6 @@ const translations = {
 
 // ================= FUNÇÃO DE TROCA DE IDIOMA =================
 function changeLanguage(lang) {
-    // 1. Traduz os textos na tela
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
@@ -157,34 +156,24 @@ function changeLanguage(lang) {
         }
     });
     
-    // 2. Atualiza o link dinâmico do WhatsApp com a mensagem traduzida
     const zapBtn = document.querySelector('.whatsapp-btn');
     if (zapBtn && translations[lang] && translations[lang].whatsapp_msg) {
         const numeroZap = "5511999156687";
-        // encodeURIComponent garante que os espaços e acentos funcionem no link
         const msgCodificada = encodeURIComponent(translations[lang].whatsapp_msg);
         zapBtn.href = `https://wa.me/${numeroZap}?text=${msgCodificada}`;
     }
     
-    // 3. Atualiza o valor do dropdown para refletir o idioma ativo (útil para o auto-detect)
     const langSelect = document.getElementById('lang-select');
     if (langSelect) {
         langSelect.value = lang;
     }
     
-    // 4. Atualiza o atributo lang do HTML para leitores de tela e SEO
     document.documentElement.lang = lang;
 }
 
 // ================= INICIALIZAÇÃO AUTOMÁTICA =================
 document.addEventListener('DOMContentLoaded', () => {
-    // Captura o idioma do navegador (ex: 'pt-BR' ou 'en-US') e pega só os 2 primeiros caracteres
     const browserLang = navigator.language.slice(0, 2);
-    
-    // Verifica se temos tradução para esse idioma no nosso dicionário
-    // Se não tiver (ex: um francês acessando 'fr'), o fallback será o Inglês ('en')
     const initialLang = translations[browserLang] ? browserLang : 'en';
-    
-    // Executa a troca de idioma logo ao carregar
     changeLanguage(initialLang);
 });
