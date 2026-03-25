@@ -1,4 +1,6 @@
 // ================= DICIONÁRIO DE TRADUÇÕES =================
+// Decisão arquitetural: Nada de i18next ou bibliotecas pesadas. 
+// Um objeto simples em JS puro resolve o problema com performance máxima e zero dependências.
 const translations = {
     pt: {
         lang_label: "<i class='fas fa-globe'></i> Idioma:",
@@ -156,6 +158,7 @@ const translations = {
 
 // ================= FUNÇÃO DE TROCA DE IDIOMA =================
 function changeLanguage(lang) {
+    // Atualiza o DOM iterando apenas nos elementos que precisam de tradução.
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
@@ -164,6 +167,8 @@ function changeLanguage(lang) {
         }
     });
     
+    // Marketing Mindset on: Reduzindo atrito na conversão.
+    // Já atualiza o link do WhatsApp com a mensagem pré-pronta no idioma do cliente.
     const zapBtn = document.querySelector('.whatsapp-btn');
     if (zapBtn && translations[lang] && translations[lang].whatsapp_msg) {
         const numeroZap = "5511999156687";
@@ -171,17 +176,22 @@ function changeLanguage(lang) {
         zapBtn.href = `https://wa.me/${numeroZap}?text=${msgCodificada}`;
     }
     
+    // Mantém o select sincronizado caso a linguagem seja trocada via código
     const langSelect = document.getElementById('lang-select');
     if (langSelect) {
         langSelect.value = lang;
     }
     
+    // Atualiza a tag HTML principal para acessibilidade (Screen Readers) e SEO perfeito.
     document.documentElement.lang = lang;
 }
 
 // ================= INICIALIZAÇÃO AUTOMÁTICA =================
 document.addEventListener('DOMContentLoaded', () => {
+    // UX é tudo: pego o idioma nativo do navegador do usuário e já sirvo a página mastigada pra ele.
     const browserLang = navigator.language.slice(0, 2);
+    
+    // Fallback inteligente: se for um idioma que eu não dou suporte (ex: 'fr', 'de'), carrega em inglês por padrão.
     const initialLang = translations[browserLang] ? browserLang : 'en';
     changeLanguage(initialLang);
 });
