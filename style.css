@@ -438,13 +438,14 @@ footer {
     background: #6b44d6;
 }
 
-/* Regra específica para o ícone da Oliveira */
+/* Regra específica para o ícone da Oliveira - Branco por padrão */
 #icon-oliveira {
-    /* brightness(0) invert(1) transforma ícone escuro em branco */
+    /* brightness(0) invert(1) garante o branco puro  */
     filter: brightness(0) invert(1) drop-shadow(0 0 5px var(--purple-glow)) !important;
 }
 
-/* Garante que ele volte à cor original com glow roxo quando passar o mouse no card */
+/* Mantém o branco no hover, mas aumenta o "fogo" do brilho roxo */
 .project-card:hover #icon-oliveira {
-    filter: grayscale(0%) brightness(1.2) drop-shadow(0 0 15px var(--purple-primary)) !important;
+    /* Mantemos a lógica do branco e apenas aumentamos o drop-shadow e o brilho geral */
+    filter: brightness(0) invert(1) brightness(1.5) drop-shadow(0 0 20px var(--purple-primary)) !important;
 }
