@@ -1,45 +1,48 @@
-# Lucas Prado | Dev & Strategy - Portfolio
+# Lucas Prado | Elite Web Engineering & Marketing Mindset
 
-> "Less '404 error', more strategy."
+> "Less 'npm install', more performance. Less '404 error', more strategy."
 
 *Live project link: [https://lucasprado.space](https://lucasprado.space)*
 
 ## About the Project
 
-This is my personal portfolio, built to showcase not only my projects (such as Chrome extensions and corporate websites) but also my proficiency in web development fundamentals and my business-oriented mindset (Marketing DNA).
+This is my personal portfolio, built to showcase not only my engineering projects (Chrome extensions, high-performance corporate websites) but also my business-oriented mindset (Marketing DNA). 
 
-The main differentiator of this project is the conscious choice to use Vanilla JavaScript, Semantic HTML5, and Pure CSS3. In an ecosystem often dependent on heavy frameworks for simple tasks, this portfolio proves that it is possible to create a fast, accessible, multilingual, and scalable application by mastering the core technologies.
+The main differentiator of this project is the conscious architectural choice to use **Vanilla JavaScript, Semantic HTML5, and Pure CSS3**. In an ecosystem obsessed with shipping 2MB React bundles for simple static landing pages, this portfolio proves a point: by mastering the core technologies, you can deliver a blazing-fast, highly accessible, multilingual, and scalable application. 
 
-## Featured Projects
+The result? **90+ Performance and 100/100 Accessibility & SEO on Google Lighthouse.**
 
-Here are the main products and solutions highlighted in this portfolio:
+## Featured Solutions
+
+Here are the main products highlighted in this portfolio:
 
 * **B2B Websites:** SEO-optimized corporate platforms focusing on UI/UX, brand authority, and lead generation (e.g., *Innovative Business*, *Oliveira & Sales*).
 * **Browser Extensions:**
   * **Câmbio Real-Time:** Quick and precise access to global currency rates directly from the browser without impacting performance.
   * **SmartCase Pro:** The ultimate developer tool for text formatting (camelCase, snake_case), data cleaning, and instantly redacting sensitive information.
-  * **ClipOctaplus:** A privacy-first clipboard manager that seamlessly saves copy history 100% locally, featuring a PIN-protected secure vault for sensitive items.
+  * **ClipOctaplus:** A privacy-first clipboard manager that seamlessly saves copy history 100% locally, featuring a PIN-protected secure vault.
 
-## Technical Highlights
+## Technical Highlights & "Under the Hood"
 
-* **Custom Internationalization (i18n) Engine:** Developed a Vanilla JS dictionary system that instantly translates the site into 4 languages (Portuguese, English, Spanish, and Polish) without the need for external libraries or page reloads.
-* **Automatic Language Detection:** The script accesses the browser's API (navigator.language), identifies the user's native language, and serves the correct version of the site upon loading, with a smart fallback to English.
-* **Custom Domain & DNS Management:** Successfully deployed via GitHub Pages and routed through a custom domain (`lucasprado.space`), demonstrating practical knowledge of DNS configuration (CNAME/A records) and web infrastructure.
-* **Modern and Maintainable CSS:** Extensive use of CSS Variables (:root) for global control of the Dark/Cyberpunk theme, ensuring that any color palette changes can be made centrally and quickly.
-* **Accessibility and SEO:** Structure built with semantic HTML5 (header, section, article), aria-label attributes for screen readers, and dynamic Open Graph meta tags for perfect sharing on social networks.
-* **Integrated Gamification:** Implementation of an iframe featuring a custom mini-game ("Corgi Break"), utilizing marketing concepts to increase user dwell time on the page.
+* **Zero-Dependency i18n Engine:** Developed a custom Vanilla JS dictionary system that instantly translates the site into 4 languages (PT, EN, ES, PL) via DOM manipulation. No external libraries, no parsing overhead, zero layout shifts.
+* **Smart Language Routing:** The script intercepts the `navigator.language` API, identifies the user's OS native language, and serves the correct version instantly, with a seamless fallback to English for unsupported regions.
+* **Performance Obsession:** Extensive use of modern CSS features like `content-visibility: auto` for lazy rendering of off-screen sections, keeping the initial paint ridiculously fast.
+* **A11y & SEO (The 100/100 Formula):** Perfect semantic structure (`<main>`, `<article>`), dynamic `aria-labels`, `focus-visible` states for keyboard navigation, `prefers-reduced-motion` media queries, and injected JSON-LD Schema.org to feed Google's Knowledge Graph.
+* **Custom Domain & DNS:** Successfully deployed via GitHub Pages and routed through a custom domain (`lucasprado.space`), demonstrating practical knowledge of DNS configuration (CNAME/A records).
+* **Integrated Gamification:** Implementation of a custom iframe mini-game ("Corgi Break"), utilizing marketing concepts to aggressively increase user dwell time (reducing bounce rate).
 
 ## Technologies Used
 
-* **HTML5:** Semantic and accessible structure.
-* **CSS3:** Flexbox, CSS Grid, Custom Properties, and animations (Zero frameworks like Tailwind or Bootstrap).
-* **JavaScript (ES6+):** DOM manipulation, event listeners, and language routing logic (Zero React/Vue).
-* **Infrastructure:** GitHub Pages, DNS Configuration, and Custom Domain routing.
-* **Font Awesome:** Lightweight vector icons.
+* **HTML5:** Pure, semantic, and blind-friendly.
+* **CSS3:** Flexbox, CSS Grid, Custom Properties (CSS Variables for the Cyberpunk theme). *Zero Tailwind, Zero Bootstrap.*
+* **JavaScript (ES6+):** Vanilla DOM manipulation and logic. *Zero React/Vue.*
+* **Infrastructure:** GitHub Pages, DNS Routing.
 
 ## How to run locally
 
-The project has no NPM dependencies or complex build processes. To run it:
+This project has no complex build processes, no NPM dependencies, and will not create a massive `node_modules` black hole on your hard drive. 
+
+To run it:
 
 1. Clone the repository:
 ```bash
