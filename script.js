@@ -73,14 +73,14 @@ function changeLanguage(lang) {
     // nós redirecionamos o usuário para a URL oficial da língua dele.
     
     const currentPath = window.location.pathname;
-    let targetPath = '/'; // Raiz = PT-BR
-    
-    if (lang !== 'pt') {
-        targetPath = `/${lang}/`;
-    }
+    const targetPath = lang === 'pt' ? '/' : `/${lang}/`;
 
-    // Só fazemos o redirecionamento se ele já não estiver na pasta correta
-    if (!currentPath.endsWith(targetPath)) {
+    // Normalizamos o caminho atual (caso o usuário tenha acessado /index.html diretamente)
+    // para fazer a comparação de forma exata e evitar o bug do botão de voltar pro PT
+    const normalizedPath = currentPath.endsWith('index.html') ? currentPath.replace('index.html', '') : currentPath;
+
+    // Se a pasta que ele quer ir é diferente de onde ele está, dispara o foguete
+    if (normalizedPath !== targetPath) {
         window.location.href = targetPath;
     }
 }
@@ -88,7 +88,6 @@ function changeLanguage(lang) {
 // ================= INICIALIZAÇÃO AUTOMÁTICA (O POLICIAL DA FRONTEIRA) =================
 document.addEventListener('DOMContentLoaded', () => {
     // Pego o idioma nativo do navegador do usuário e já sirvo a página mastigada pra ele. 
-    // É o famoso "It works on my machine" convertido para "It works everywhere".
     
     // Fallback rigoroso (|| 'en') porque extensões pesadas de privacidade 
     // podem retornar o navigator.language como undefined.
