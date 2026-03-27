@@ -20,7 +20,7 @@ Here are the main products highlighted in this portfolio:
 * **Browser Extensions:**
   * **Câmbio Real-Time:** Quick and precise access to global currency rates directly from the browser without impacting performance.
   * **SmartCase Pro:** The ultimate developer tool for text formatting (camelCase, snake_case), data cleaning, and instantly redacting sensitive information.
-  * **ClipOctaplus:** A privacy-first clipboard manager that seamlessly saves copy history 100% locally, featuring a PIN-protected secure vault.
+  * **ClipOctaplus:** A privacy first clipboard manager that seamlessly saves copy history 100% locally, featuring a PIN-protected secure vault.
 
 ## Technical Highlights & "Under the Hood"
 
