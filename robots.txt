@@ -1,0 +1,29 @@
+# =============================================================================
+# TECHNICAL SEO & CRAWL BUDGET OPTIMIZATION
+# Developed by: Lucas Prado (https://lucasprado.space/)
+#
+# Hello, curious dev/recruiter!
+# If you are reading this, you know that technical SEO goes beyond meta tags.
+# Crawl budget is actively managed here: blocking low-value indexing (like 
+# standalone game iframes) while explicitly ensuring CSS/JS are crawlable 
+# for accurate rendering and Web Vitals scoring.
+# =============================================================================
+
+User-agent: *
+
+# Garante que o Google rastreie todo o conteúdo principal e os idiomas
+Allow: /
+Allow: /en/
+Allow: /es/
+Allow: /pl/
+
+# Garante que o Google consiga ler o CSS e JS para renderizar a página perfeitamente
+Allow: /*.css$
+Allow: /*.js$
+
+# Bloqueia a indexação de páginas isoladas que não agregam valor ao SEO (evita conteúdo ralo/thin content)
+Disallow: /Corgi_Game/
+Disallow: /*?* # Bloqueia URLs com parâmetros de busca acidentais
+
+# Aponta o mapa da mina para os robôs
+Sitemap: https://lucasprado.space/sitemap.xml
