@@ -173,7 +173,7 @@ a { text-decoration: none; }
     box-shadow: 0 0 40px var(--purple-primary);
 }
 
-/* SELO GOOGLE */
+/* SELO GOOGLE (AGORA CLICÁVEL E ANIMADO) */
 .verified-badge {
     display: inline-flex;
     align-items: center;
@@ -188,11 +188,21 @@ a { text-decoration: none; }
     letter-spacing: 0.5px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     margin-bottom: 2.5rem;
+    transition: var(--transition);
+    text-decoration: none;
 }
 
 .verified-badge i {
     color: var(--purple-primary);
     font-size: 1rem;
+}
+
+.verified-badge:hover {
+    background: rgba(127, 90, 240, 0.2);
+    border-color: var(--purple-primary);
+    color: var(--text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--purple-glow);
 }
 
 /* TEXTOS DA HERO */
