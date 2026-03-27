@@ -13,6 +13,10 @@
             <head>
                 <title>Advanced XML Sitemap | Lucas Prado</title>
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                
+                <link rel="icon" href="/iconProjects/favicon.png" type="image/png" />
+                <link rel="apple-touch-icon" href="/iconProjects/favicon.png" />
+                
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
                 <style type="text/css">
                     :root {
