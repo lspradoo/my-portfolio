@@ -15,6 +15,7 @@ const translations = {
         lang_label: "<i class='fas fa-globe' aria-hidden='true'></i> Idioma:",
         
         // Hero Section
+        verified_badge: "<i class='fas fa-check-circle' aria-hidden='true'></i> Desenvolvedor Verificado Google",
         hero_title: "Desenvolvedor Web com <span class='purple-text'>Marketing Mindset</span>.",
         hero_subtitle: "Criação de sites de alta performance, extensões para navegador e automações focadas em resolver problemas reais e melhorar a experiência do usuário.",
         hero_bio: "Meu diferencial está na interseção entre engenharia web, produto e comunicação. Não construo apenas interfaces bonitas. Eu crio soluções digitais com foco em SEO, clareza, eficiência e impacto real.",
@@ -85,6 +86,7 @@ const translations = {
         
         lang_label: "<i class='fas fa-globe' aria-hidden='true'></i> Language:",
         
+        verified_badge: "<i class='fas fa-check-circle' aria-hidden='true'></i> Google Verified Developer",
         hero_title: "Web Developer with a <span class='purple-text'>Marketing Mindset</span>.",
         hero_subtitle: "High-performance website creation, browser extensions, and automations focused on solving real problems and improving the user experience.",
         hero_bio: "My edge lies at the intersection of web engineering, product, and communication. I don't just build pretty interfaces. I create digital solutions focused on SEO, clarity, efficiency, and real impact.",
@@ -152,6 +154,7 @@ const translations = {
         
         lang_label: "<i class='fas fa-globe' aria-hidden='true'></i> Idioma:",
         
+        verified_badge: "<i class='fas fa-check-circle' aria-hidden='true'></i> Desarrollador Verificado Google",
         hero_title: "Desarrollador Web con <span class='purple-text'>Mentalidad de Marketing</span>.",
         hero_subtitle: "Creación de sitios web de alto rendimiento, extensiones para navegador y automatizaciones enfocadas en resolver problemas reales y mejorar la experiencia del usuario.",
         hero_bio: "Mi diferencial está en la intersección entre ingeniería web, producto y comunicación. No solo construyo interfaces bonitas. Creo soluciones digitales con enfoque en SEO, claridad, eficiencia e impacto real.",
@@ -219,6 +222,7 @@ const translations = {
         
         lang_label: "<i class='fas fa-globe' aria-hidden='true'></i> Język:",
         
+        verified_badge: "<i class='fas fa-check-circle' aria-hidden='true'></i> Zweryfikowany Deweloper Google",
         hero_title: "Programista Web z <span class='purple-text'>Podejściem Marketingowym</span>.",
         hero_subtitle: "Tworzenie wydajnych stron internetowych, rozszerzeń do przeglądarek i automatyzacji skupionych na rozwiązywaniu rzeczywistych problemów i poprawie doświadczeń użytkownika.",
         hero_bio: "Moja przewaga leży na skrzyżowaniu inżynierii webowej, produktu i komunikacji. Nie tworzę tylko ładnych interfejsów. Tworzę cyfrowe rozwiązania z naciskiem na SEO, przejrzystość, efektywność i realny wpływ.",
