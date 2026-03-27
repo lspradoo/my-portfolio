@@ -24,6 +24,7 @@
                         --text-gray: #a7a9be;
                         --lh-green: #0cce6b;
                         --font-main: 'Poppins', sans-serif;
+                        --font-mono: 'Courier New', Courier, monospace;
                     }
                     
                     body {
@@ -31,129 +32,203 @@
                         background-color: var(--bg-main);
                         color: var(--text-light);
                         margin: 0;
-                        padding: 40px;
+                        padding: 50px 20px;
                         line-height: 1.6;
+                        display: flex;
+                        justify-content: center;
                     }
                     
                     .container {
-                        max-width: 1000px;
-                        margin: 0 auto;
-                        background-color: var(--bg-secondary);
-                        padding: 30px;
-                        border-radius: 16px;
+                        width: 100%;
+                        max-width: 1100px;
+                        background: linear-gradient(145deg, var(--bg-secondary) 0%, #110f18 100%);
+                        padding: 40px;
+                        border-radius: 20px;
                         border: 1px solid rgba(127, 90, 240, 0.2);
-                        box-shadow: 0 10px 30px -10px var(--purple-glow);
+                        box-shadow: 0 15px 50px -15px rgba(127, 90, 240, 0.3);
+                    }
+                    
+                    .header-section {
+                        margin-bottom: 40px;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                        padding-bottom: 30px;
                     }
                     
                     h1 {
                         color: var(--text-light);
-                        font-size: 2rem;
-                        margin-top: 0;
-                        border-bottom: 2px solid var(--purple-primary);
-                        padding-bottom: 10px;
-                        display: inline-block;
+                        font-size: 2.5rem;
+                        margin: 0 0 10px 0;
+                        font-weight: 700;
+                        letter-spacing: -0.5px;
                     }
                     
                     .purple-dot { color: var(--purple-primary); }
                     
                     p.desc {
                         color: var(--text-gray);
-                        margin-bottom: 30px;
+                        font-size: 1.05rem;
+                        margin: 0 0 20px 0;
                     }
                     
+                    .stats-badge {
+                        display: inline-flex;
+                        align-items: center;
+                        background: rgba(127, 90, 240, 0.1);
+                        border: 1px solid rgba(127, 90, 240, 0.3);
+                        color: var(--text-light);
+                        padding: 8px 16px;
+                        border-radius: 50px;
+                        font-size: 0.9rem;
+                        font-weight: 600;
+                    }
+                    
+                    .stats-badge span {
+                        background: var(--purple-primary);
+                        color: #fff;
+                        padding: 2px 10px;
+                        border-radius: 50px;
+                        margin-left: 10px;
+                    }
+
                     table {
                         width: 100%;
-                        border-collapse: collapse;
-                        margin-top: 20px;
+                        border-collapse: separate;
+                        border-spacing: 0;
                     }
                     
                     th {
                         text-align: left;
-                        padding: 15px;
-                        background-color: rgba(127, 90, 240, 0.1);
-                        color: var(--purple-primary);
-                        border-bottom: 2px solid var(--purple-primary);
+                        padding: 15px 20px;
+                        color: var(--text-gray);
+                        font-size: 0.85rem;
+                        text-transform: uppercase;
+                        letter-spacing: 1.5px;
+                        border-bottom: 2px solid rgba(127, 90, 240, 0.3);
                         font-weight: 600;
                     }
                     
                     td {
-                        padding: 15px;
-                        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-                        color: var(--text-light);
+                        padding: 20px;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+                        vertical-align: middle;
+                        transition: background-color 0.2s;
+                    }
+                    
+                    tr:last-child td {
+                        border-bottom: none;
                     }
                     
                     tr:hover td {
-                        background-color: rgba(127, 90, 240, 0.05);
+                        background-color: rgba(127, 90, 240, 0.03);
                     }
                     
-                    a {
-                        color: var(--lh-green);
+                    .url-link {
+                        color: var(--text-light);
                         text-decoration: none;
                         font-weight: 600;
+                        font-size: 1rem;
                         transition: all 0.3s ease;
                     }
                     
-                    a:hover {
-                        color: var(--text-light);
-                        text-shadow: 0 0 8px rgba(12, 206, 107, 0.5);
+                    .url-link:hover {
+                        color: var(--lh-green);
+                        text-shadow: 0 0 10px rgba(12, 206, 107, 0.3);
                     }
                     
+                    .date-text {
+                        font-family: var(--font-mono);
+                        color: var(--text-gray);
+                        font-size: 0.9rem;
+                    }
+                    
+                    .tags-wrapper {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 8px;
+                    }
+
                     .hreflang-tag {
-                        display: inline-block;
-                        background: rgba(127, 90, 240, 0.2);
-                        color: var(--text-light);
-                        padding: 2px 8px;
-                        border-radius: 4px;
-                        font-size: 0.8rem;
-                        margin-right: 5px;
-                        margin-bottom: 5px;
-                        border: 1px solid var(--purple-primary);
-                    }
-                    
-                    .badge {
-                        background: var(--purple-primary);
-                        color: #fff;
-                        padding: 4px 10px;
+                        background: rgba(127, 90, 240, 0.05);
+                        color: var(--text-gray);
+                        padding: 4px 12px;
                         border-radius: 50px;
                         font-size: 0.8rem;
-                        font-weight: bold;
+                        font-weight: 600;
+                        border: 1px solid rgba(127, 90, 240, 0.2);
+                        transition: all 0.2s;
+                    }
+                    
+                    .hreflang-tag:hover {
+                        background: rgba(127, 90, 240, 0.15);
+                        border-color: var(--purple-primary);
+                        color: var(--text-light);
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 10px rgba(127, 90, 240, 0.2);
+                    }
+
+                    /* Special highlight for x-default */
+                    .hreflang-tag.x-default {
+                        border-color: rgba(12, 206, 107, 0.4);
+                        color: var(--lh-green);
+                        background: rgba(12, 206, 107, 0.05);
+                    }
+                    
+                    .hreflang-tag.x-default:hover {
+                        border-color: var(--lh-green);
+                        box-shadow: 0 4px 10px rgba(12, 206, 107, 0.2);
+                        color: var(--lh-green);
                     }
                 </style>
             </head>
             <body>
                 <div class="container">
-                    <h1>XML Sitemap <span class="purple-dot">.</span></h1>
-                    <p class="desc">
-                        Este é um sitemap formatado por XSLT para leitura humana.<br/> 
-                        Desenvolvido com foco em <strong>SEO Internacional</strong> (Hreflang) e <strong>Crawl Budget</strong>.<br/>
-                        Total de URLs indexáveis: <span class="badge"><xsl:value-of select="count(sitemap:urlset/sitemap:url)"/></span>
-                    </p>
+                    <div class="header-section">
+                        <h1>XML Sitemap <span class="purple-dot">.</span></h1>
+                        <p class="desc">
+                            Human-readable sitemap generated via XSLT.<br/> 
+                            Engineered for advanced <strong>International SEO</strong> (Hreflang) and optimal <strong>Crawl Budget</strong>.
+                        </p>
+                        <div class="stats-badge">
+                            Indexable URLs <span><xsl:value-of select="count(sitemap:urlset/sitemap:url)"/></span>
+                        </div>
+                    </div>
                     
                     <table>
                         <thead>
                             <tr>
-                                <th>URL Oficial (Canonical)</th>
-                                <th>Última Modificação</th>
-                                <th>Versões Alternativas (Hreflang)</th>
+                                <th>Canonical URL</th>
+                                <th>Last Modified</th>
+                                <th>Alternate Versions (Hreflang)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <xsl:for-each select="sitemap:urlset/sitemap:url">
                                 <tr>
                                     <td>
-                                        <a href="{sitemap:loc}" target="_blank">
+                                        <a href="{sitemap:loc}" target="_blank" class="url-link">
                                             <xsl:value-of select="sitemap:loc"/>
                                         </a>
                                     </td>
-                                    <td style="color: var(--text-gray);">
-                                        <xsl:value-of select="sitemap:lastmod"/>
+                                    <td>
+                                        <span class="date-text"><xsl:value-of select="sitemap:lastmod"/></span>
                                     </td>
                                     <td>
-                                        <xsl:for-each select="xhtml:link">
-                                            <span class="hreflang-tag">
-                                                <xsl:value-of select="@hreflang"/>
-                                            </span>
-                                        </xsl:for-each>
+                                        <div class="tags-wrapper">
+                                            <xsl:for-each select="xhtml:link">
+                                                <xsl:choose>
+                                                    <xsl:when test="@hreflang='x-default'">
+                                                        <span class="hreflang-tag x-default">
+                                                            <xsl:value-of select="@hreflang"/>
+                                                        </span>
+                                                    </xsl:when>
+                                                    <xsl:otherwise>
+                                                        <span class="hreflang-tag">
+                                                            <xsl:value-of select="@hreflang"/>
+                                                        </span>
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
+                                            </xsl:for-each>
+                                        </div>
                                     </td>
                                 </tr>
                             </xsl:for-each>
