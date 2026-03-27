@@ -32,6 +32,10 @@ body {
     font-family: var(--font-main);
     line-height: 1.6;
     overflow-x: hidden;
+    /* Toque Premium: Deixa as fontes mais nítidas e elegantes */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* ================= ACESSIBILIDADE & PERFORMANCE (O Segredo do 100/100) ================= */
@@ -54,13 +58,13 @@ body {
     top: 0;
 }
 
-/* A11y: Mostrando para quem navega por teclado onde o foco está (Isso é lei pra passar em auditoria) */
+/* A11y: Mostrando para quem navega por teclado onde o foco está */
 *:focus-visible {
-    outline: 3px dashed var(--purple-primary) !important; /* Sim, eu usei !important, me processe. É por uma boa causa. */
+    outline: 3px dashed var(--purple-primary) !important; 
     outline-offset: 4px;
 }
 
-/* Pedido do chefe: Tirando o tracejado feio do idioma, mas mantendo o brilho pra A11y não chorar */
+/* Pedido do chefe: Tirando o tracejado feio do idioma, mas mantendo o brilho pra A11y */
 .custom-select-wrapper select:focus-visible {
     outline: none !important;
     box-shadow: 0 0 12px var(--purple-primary);
@@ -111,10 +115,11 @@ a { text-decoration: none; }
     background-color: var(--bg-secondary);
     color: var(--text-light);
     border: 1px solid var(--purple-primary);
-    padding: 6px 35px 6px 12px;
+    /* Otimização de SEO Mobile: Aumentado o padding para atingir o mínimo de 48px de área de toque do Google */
+    padding: 10px 35px 10px 14px;
     border-radius: 6px;
     font-family: var(--font-main);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     outline: none;
@@ -122,7 +127,7 @@ a { text-decoration: none; }
     appearance: none;
     background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%237f5af0%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
     background-repeat: no-repeat;
-    background-position: right 10px top 50%;
+    background-position: right 12px top 50%;
     background-size: 10px auto;
 }
 
@@ -161,6 +166,8 @@ a { text-decoration: none; }
 .profile-img {
     width: 200px;
     height: 200px;
+    /* Prevenção de CLS: Informa ao navegador o quadrado exato da foto antes de carregar */
+    aspect-ratio: 1 / 1; 
     border-radius: 50%;
     border: 3px solid var(--purple-primary);
     object-fit: cover;
@@ -173,7 +180,7 @@ a { text-decoration: none; }
     box-shadow: 0 0 40px var(--purple-primary);
 }
 
-/* SELO GOOGLE (AGORA CLICÁVEL E ANIMADO) */
+/* SELO GOOGLE */
 .verified-badge {
     display: inline-flex;
     align-items: center;
@@ -219,20 +226,6 @@ a { text-decoration: none; }
     font-weight: 400;
     margin-bottom: 1.5rem;
     line-height: 1.6;
-}
-
-.business-link {
-    color: var(--purple-primary);
-    font-weight: 600;
-    text-decoration: underline;
-    text-decoration-color: rgba(127, 90, 240, 0.4);
-    text-underline-offset: 4px;
-    transition: var(--transition);
-}
-
-.business-link:hover {
-    color: #9c7eff;
-    text-decoration-color: #9c7eff;
 }
 
 .bio {
@@ -390,7 +383,6 @@ a { text-decoration: none; }
     stroke-width: 3;
 }
 
-/* Aqui está a obra de arte que faz a borda "girar/desenhar" sozinha */
 .circle-score {
     fill: none;
     stroke-width: 3;
@@ -606,28 +598,29 @@ a { text-decoration: none; }
     margin: 0; 
 }
 
+/* ================= O SEGREDO DO "QUADRADO DE FUMAÇA" FIX ================= */
 .services-logo {
     flex: 0 0 250px;
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0.2; 
     transition: var(--transition);
 }
 
 .logo-watermark {
     width: 100%;
     max-width: 250px;
+    opacity: 0.2; 
     filter: drop-shadow(0 0 20px var(--purple-primary)); 
+    /* A mágica que impede o Safari/Mobile de bugar a sombra e criar uma caixa fantasma */
+    transform: translateZ(0); 
+    will-change: transform, filter, opacity;
     transition: var(--transition);
 }
 
-.services-logo:hover {
-    opacity: 0.5; 
-}
-
 .services-logo:hover .logo-watermark {
-    transform: scale(1.05);
+    opacity: 0.5;
+    transform: scale(1.05) translateZ(0);
 }
 
 /* ================= GAME SECTION ================= */
@@ -670,7 +663,6 @@ footer {
     gap: 1.8rem;
 }
 
-/* O Botão / Selo do Google no Footer */
 .footer-google-link {
     display: inline-flex;
     align-items: center;
@@ -733,7 +725,6 @@ footer {
 ::-webkit-scrollbar-thumb:hover { background: #613cdb; }
 
 /* ================= A11Y: PREFERS REDUCED MOTION ================= */
-/* Se o usuário tem labirintite ou desligou animações no sistema, a gente respeita. */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -772,7 +763,6 @@ footer {
     }
     .section-title.left-align { text-align: left; }
     
-    /* AQUI ESTÁ A MÁGICA: Botões perfeitamente centralizados no mobile */
     .services-buttons { justify-content: center; } 
     
     .services-logo {

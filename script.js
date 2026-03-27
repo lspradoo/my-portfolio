@@ -72,11 +72,14 @@ function changeLanguage(lang) {
     // A mágica agora é física! Em vez de injetar no DOM e perder o SEO,
     // nós redirecionamos o usuário para a URL oficial da língua dele.
     
+    // Salva a escolha manual do usuário no navegador (O Salvo-conduto contra o loop infinito no mobile!)
+    localStorage.setItem('lang_manually_selected', 'true');
+    
     const currentPath = window.location.pathname;
     const targetPath = lang === 'pt' ? '/' : `/${lang}/`;
 
     // Normalizamos o caminho atual (caso o usuário tenha acessado /index.html diretamente)
-    // para fazer a comparação de forma exata e evitar o bug do botão de voltar pro PT
+    // para fazer a comparação de forma exata e evitar bugs.
     const normalizedPath = currentPath.endsWith('index.html') ? currentPath.replace('index.html', '') : currentPath;
 
     // Se a pasta que ele quer ir é diferente de onde ele está, dispara o foguete
@@ -100,8 +103,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Só redirecionamos automaticamente se o usuário estiver acessando a raiz (lucasprado.space/)
     // Se ele já estiver dentro de /en/, /pl/, etc, deixamos ele quieto lá pra não gerar loop!
     const isRoot = currentPath === '/' || currentPath === '/index.html' || currentPath === '';
+    
+    // Verifica se o usuário já forçou a escolha na mão antes (O Salvo-conduto)
+    const manualOverride = localStorage.getItem('lang_manually_selected');
 
-    if (isRoot) {
+    // Só atua se for na raiz E se o usuário não escolheu manualmente
+    if (isRoot && !manualOverride) {
         // Se o cara é BR (pt), ele fica na raiz mesmo. 
         if (browserLang !== 'pt') {
             const supportedLangs = ['en', 'es', 'pl'];
