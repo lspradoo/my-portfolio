@@ -6,11 +6,15 @@
 
 const translations = {
     pt: {
-        // SEO no código (invisível pro usuário, perfeito pro Google)
+        // SEO no código (invisível pro usuário, perfeito pro Google e ferramentas de DOM)
         title_tag: "Lucas Prado | Desenvolvedor Web, Criação de Sites de Alta Performance e SEO",
+        meta_desc: "Procurando um profissional para criar seu site? Engenharia web de elite focada em criação de sites rápidos (Performance 90+), SEO gabaritado e alta conversão.",
+        og_title: "Lucas Prado | Criação de Sites e Engenharia Web de Elite",
+        og_desc: "Transformo código em ativos de alta conversão. Especialista em criação de sites com SEO 100% gabaritado pelo Google.",
+        
         lang_label: "<i class='fas fa-globe' aria-hidden='true'></i> Idioma:",
         
-        // Hero Section - Copy focado em UX, com veneno invisível de SEO
+        // Hero Section
         hero_title: "Desenvolvedor Web com <span class='purple-text'>Marketing Mindset</span>.",
         hero_subtitle: "Criação de sites de alta performance, extensões para navegador e automações focadas em resolver problemas reais e melhorar a experiência do usuário.",
         hero_bio: "Meu diferencial está na interseção entre engenharia web, produto e comunicação. Não construo apenas interfaces bonitas. Eu crio soluções digitais com foco em SEO, clareza, eficiência e impacto real.",
@@ -75,6 +79,10 @@ const translations = {
     },
     en: {
         title_tag: "Lucas Prado | Web Developer, High-Performance Website Creation & SEO",
+        meta_desc: "Looking for a professional to build your website? Elite web engineering focused on fast sites (Performance 90+), top-tier SEO, and high conversion.",
+        og_title: "Lucas Prado | High-Performance Website Creation & SEO",
+        og_desc: "I turn code into high-conversion assets. Specialist in website creation with 100% Google-approved SEO.",
+        
         lang_label: "<i class='fas fa-globe' aria-hidden='true'></i> Language:",
         
         hero_title: "Web Developer with a <span class='purple-text'>Marketing Mindset</span>.",
@@ -138,6 +146,10 @@ const translations = {
     },
     es: {
         title_tag: "Lucas Prado | Desarrollador Web, Creación de Sitios de Alto Rendimiento y SEO",
+        meta_desc: "¿Buscas un profesional para crear tu sitio web? Ingeniería web de élite enfocada en sitios rápidos (Rendimiento 90+), SEO de primer nivel y alta conversión.",
+        og_title: "Lucas Prado | Creación de Sitios Web y SEO de Élite",
+        og_desc: "Transformo código en activos de alta conversión. Especialista en creación de sitios con SEO 100% aprobado por Google.",
+        
         lang_label: "<i class='fas fa-globe' aria-hidden='true'></i> Idioma:",
         
         hero_title: "Desarrollador Web con <span class='purple-text'>Mentalidad de Marketing</span>.",
@@ -201,6 +213,10 @@ const translations = {
     },
     pl: {
         title_tag: "Lucas Prado | Programista Web, Tworzenie Stron o Wysokiej Wydajności i SEO",
+        meta_desc: "Szukasz profesjonalisty do stworzenia strony? Elitarna inżynieria webowa skupiona na szybkich stronach (Wydajność 90+), najwyższej klasy SEO i wysokiej konwersji.",
+        og_title: "Lucas Prado | Tworzenie Stron o Wysokiej Wydajności i SEO",
+        og_desc: "Zamieniam kod w aktywa o wysokiej konwersji. Specjalista w tworzeniu stron z SEO w 100% zatwierdzonym przez Google.",
+        
         lang_label: "<i class='fas fa-globe' aria-hidden='true'></i> Język:",
         
         hero_title: "Programista Web z <span class='purple-text'>Podejściem Marketingowym</span>.",
@@ -277,10 +293,19 @@ function changeLanguage(lang) {
         }
     });
     
-    // 2. SEO DINÂMICO! Isso aqui separa os devs juniores dos que resolvem problema.
-    // Atualizar a Title tag com base na língua selecionada para ranquear melhor se a pessoa favoritar ou compartilhar.
-    if(translations[lang] && translations[lang].title_tag) {
-        document.title = translations[lang].title_tag;
+    // 2. SEO DINÂMICO & META TAGS
+    // Atualiza a Title tag e as Meta tags do head para as ferramentas que renderizam DOM
+    if(translations[lang]) {
+        if(translations[lang].title_tag) document.title = translations[lang].title_tag;
+        
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if(metaDesc && translations[lang].meta_desc) metaDesc.setAttribute("content", translations[lang].meta_desc);
+        
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        if(ogTitle && translations[lang].og_title) ogTitle.setAttribute("content", translations[lang].og_title);
+        
+        const ogDesc = document.querySelector('meta[property="og:description"]');
+        if(ogDesc && translations[lang].og_desc) ogDesc.setAttribute("content", translations[lang].og_desc);
     }
 
     // 3. Marketing Mindset on: Reduzindo atrito na conversão.
@@ -308,7 +333,12 @@ function changeLanguage(lang) {
 document.addEventListener('DOMContentLoaded', () => {
     // Pego o idioma nativo do navegador do usuário e já sirvo a página mastigada pra ele. 
     // É o famoso "It works on my machine" convertido para "It works everywhere".
-    const browserLang = navigator.language.slice(0, 2);
+    
+    // CORREÇÃO: Usando um fallback rigoroso (|| 'en') porque extensões pesadas de privacidade 
+    // e algumas versões antigas do iOS podem retornar o navigator.language como undefined, 
+    // o que causaria um erro fatal no .slice() e quebraria a tradução inteira da página.
+    const rawLang = navigator.language || navigator.userLanguage || 'en';
+    const browserLang = rawLang.slice(0, 2);
     
     // Fallback inteligente: se for um idioma que eu não dou suporte (ex: ar, de, ja), carrega em inglês por padrão.
     const initialLang = translations[browserLang] ? browserLang : 'en';

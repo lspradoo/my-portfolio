@@ -761,7 +761,9 @@ footer {
         gap: 2rem;
     }
     .section-title.left-align { text-align: left; }
-    .services-buttons { justify-content: flex-start; }
+    
+    /* AQUI ESTÁ A MÁGICA: Botões perfeitamente centralizados no mobile */
+    .services-buttons { justify-content: center; } 
     
     .services-logo {
         flex: auto;
