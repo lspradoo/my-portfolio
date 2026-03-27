@@ -57,6 +57,15 @@
                         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
                         padding-bottom: 30px;
                     }
+
+                    /* Layout flex para jogar o botão para a direita */
+                    .header-top {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        flex-wrap: wrap;
+                        gap: 20px;
+                    }
                     
                     h1 {
                         color: var(--text-light);
@@ -94,10 +103,34 @@
                         margin-left: 10px;
                     }
 
+                    /* Estilo do Botão de Voltar */
+                    .btn-back {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 8px;
+                        background: rgba(127, 90, 240, 0.1);
+                        color: var(--text-light);
+                        text-decoration: none;
+                        padding: 10px 24px;
+                        border-radius: 50px;
+                        font-size: 0.95rem;
+                        font-weight: 600;
+                        border: 1px solid rgba(127, 90, 240, 0.3);
+                        transition: all 0.3s ease;
+                    }
+
+                    .btn-back:hover {
+                        background: var(--purple-primary);
+                        border-color: var(--purple-primary);
+                        box-shadow: 0 4px 15px var(--purple-glow);
+                        transform: translateY(-2px);
+                    }
+
                     table {
                         width: 100%;
                         border-collapse: separate;
                         border-spacing: 0;
+                        margin-top: 20px;
                     }
                     
                     th {
@@ -170,7 +203,6 @@
                         box-shadow: 0 4px 10px rgba(127, 90, 240, 0.2);
                     }
 
-                    /* Special highlight for x-default */
                     .hreflang-tag.x-default {
                         border-color: rgba(12, 206, 107, 0.4);
                         color: var(--lh-green);
@@ -182,18 +214,32 @@
                         box-shadow: 0 4px 10px rgba(12, 206, 107, 0.2);
                         color: var(--lh-green);
                     }
+
+                    @media (max-width: 768px) {
+                        .header-top {
+                            flex-direction: column;
+                        }
+                    }
                 </style>
             </head>
             <body>
                 <div class="container">
                     <div class="header-section">
-                        <h1>XML Sitemap <span class="purple-dot">.</span></h1>
-                        <p class="desc">
-                            Human-readable sitemap generated via XSLT.<br/> 
-                            Engineered for advanced <strong>International SEO</strong> (Hreflang) and optimal <strong>Crawl Budget</strong>.
-                        </p>
-                        <div class="stats-badge">
-                            Indexable URLs <span><xsl:value-of select="count(sitemap:urlset/sitemap:url)"/></span>
+                        <div class="header-top">
+                            <div>
+                                <h1>XML Sitemap <span class="purple-dot">.</span></h1>
+                                <p class="desc">
+                                    Human-readable sitemap generated via XSLT.<br/> 
+                                    Engineered for advanced <strong>International SEO</strong> (Hreflang) and optimal <strong>Crawl Budget</strong>.
+                                </p>
+                                <div class="stats-badge">
+                                    Indexable URLs <span><xsl:value-of select="count(sitemap:urlset/sitemap:url)"/></span>
+                                </div>
+                            </div>
+                            
+                            <a href="https://lucasprado.space/" class="btn-back">
+                                ← Back to Website
+                            </a>
                         </div>
                     </div>
                     
