@@ -1,29 +1,23 @@
-# =============================================================================
-# TECHNICAL SEO & CRAWL BUDGET OPTIMIZATION
-# Developed by: Lucas Prado (https://lucasprado.space/)
-#
-# Hello, curious dev/recruiter!
-# If you are reading this, you know that technical SEO goes beyond meta tags.
-# Crawl budget is actively managed here: blocking low-value indexing (like 
-# standalone game iframes) while explicitly ensuring CSS/JS are crawlable 
-# for accurate rendering and Web Vitals scoring.
-# =============================================================================
-
 User-agent: *
 
-# Garante que o Google rastreie todo o conteúdo principal e os idiomas
+# Garante acesso total aos idiomas
 Allow: /
 Allow: /en/
 Allow: /es/
 Allow: /pl/
 
-# Garante que o Google consiga ler o CSS e JS para renderizar a página perfeitamente
-Allow: /*.css$
-Allow: /*.js$
+# PERMISSÃO ESPECIAL: Garante que CSS e JS sejam lidos, mesmo com versões (?v=)
+Allow: /*.css
+Allow: /*.js
+Allow: /style.css*
+Allow: /script.js*
 
-# Bloqueia a indexação de páginas isoladas que não agregam valor ao SEO (evita conteúdo ralo/thin content)
+# BLOQUEIOS ESTRATÉGICOS
+# Mantemos o jogo bloqueado para não gastar "Crawl Budget" com código de jogo
 Disallow: /Corgi_Game/
-Disallow: /*?* # Bloqueia URLs com parâmetros de busca acidentais
 
-# Aponta o mapa da mina para os robôs
+# Bloqueia parâmetros de busca, mas ignora os arquivos que permitimos acima
+Disallow: /*?*
+
+# Sitemap
 Sitemap: https://lucasprado.space/sitemap.xml
