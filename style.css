@@ -64,7 +64,7 @@ body {
     outline-offset: 4px;
 }
 
-/* Pedido do chefe: Tirando o tracejado feio do idioma, mas mantendo o brilho pra A11y */
+/* Tirando o tracejado feio do idioma, mas mantendo o brilho pra A11y */
 .custom-select-wrapper select:focus-visible {
     outline: none !important;
     box-shadow: 0 0 12px var(--purple-primary);
@@ -115,8 +115,7 @@ a { text-decoration: none; }
     background-color: var(--bg-secondary);
     color: var(--text-light);
     border: 1px solid var(--purple-primary);
-    /* Otimização de SEO Mobile: Aumentado o padding para atingir o mínimo de 48px de área de toque do Google */
-    padding: 10px 35px 10px 14px;
+    padding: 10px 35px 10px 14px; /* Padding de 48px pro Google Mobile */
     border-radius: 6px;
     font-family: var(--font-main);
     font-size: 0.95rem;
@@ -166,7 +165,6 @@ a { text-decoration: none; }
 .profile-img {
     width: 200px;
     height: 200px;
-    /* Prevenção de CLS: Informa ao navegador o quadrado exato da foto antes de carregar */
     aspect-ratio: 1 / 1; 
     border-radius: 50%;
     border: 3px solid var(--purple-primary);
@@ -226,6 +224,20 @@ a { text-decoration: none; }
     font-weight: 400;
     margin-bottom: 1.5rem;
     line-height: 1.6;
+}
+
+.business-link {
+    color: var(--purple-primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(127, 90, 240, 0.4);
+    text-underline-offset: 4px;
+    transition: var(--transition);
+}
+
+.business-link:hover {
+    color: #9c7eff;
+    text-decoration-color: #9c7eff;
 }
 
 .bio {
@@ -598,7 +610,7 @@ a { text-decoration: none; }
     margin: 0; 
 }
 
-/* ================= O SEGREDO DO "QUADRADO DE FUMAÇA" FIX ================= */
+/* ================= MARCA D'ÁGUA FIX ================= */
 .services-logo {
     flex: 0 0 250px;
     display: flex;
@@ -612,8 +624,7 @@ a { text-decoration: none; }
     max-width: 250px;
     opacity: 0.2; 
     filter: drop-shadow(0 0 20px var(--purple-primary)); 
-    /* A mágica que impede o Safari/Mobile de bugar a sombra e criar uma caixa fantasma */
-    transform: translateZ(0); 
+    transform: translateZ(0); /* Evita bug da sombra quadrada no Safari/Mobile */
     will-change: transform, filter, opacity;
     transition: var(--transition);
 }
@@ -707,15 +718,22 @@ footer {
     align-items: center;
     gap: 10px;
     transition: var(--transition);
+    /* FIX: Tira o flash cinza nativo de clique do iOS no touch */
+    -webkit-tap-highlight-color: transparent; 
 }
 
 .whatsapp-btn i { font-size: 1.3rem; }
 
-.whatsapp-btn:hover {
-    background-color: #613cdb; 
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px var(--purple-glow);
-    color: var(--text-light);
+/* FIX: O media query (hover: hover) e (pointer: fine) resolve o bug do iOS Safari
+   de manter o botão "preso" no hover após usar o botão de voltar. 
+   Ele garante que o hover só aplique em quem tem mouse e cursor de verdade. */
+@media (hover: hover) and (pointer: fine) {
+    .whatsapp-btn:hover {
+        background-color: #613cdb; 
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px var(--purple-glow);
+        color: var(--text-light);
+    }
 }
 
 /* ================= SCROLLBAR CUSTOMIZADA ================= */
@@ -743,6 +761,12 @@ footer {
     .hero h1 { font-size: 2rem; }
     .hero-subtitle { font-size: 1.05rem; }
     .section-title { font-size: 2rem; }
+    
+    /* Transforma o link do Google em um selo estático no mobile para não dar erro de loja restrita */
+    .verified-badge {
+        pointer-events: none;
+        cursor: default;
+    }
     
     .card-scores {
         flex-wrap: wrap;
