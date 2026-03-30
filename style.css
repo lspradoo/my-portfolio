@@ -173,11 +173,6 @@ a { text-decoration: none; }
     transition: var(--transition);
 }
 
-.profile-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 40px var(--purple-primary);
-}
-
 /* SELO GOOGLE */
 .verified-badge {
     display: inline-flex;
@@ -305,7 +300,8 @@ a { text-decoration: none; }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    /* Grelha que não rebenta com ecrãs menores que 320px */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 2rem;
     margin-bottom: 4rem;
 }
@@ -320,12 +316,6 @@ a { text-decoration: none; }
     flex-direction: column;
     justify-content: space-between;
     min-height: 380px;
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--purple-primary);
-    box-shadow: 0 10px 30px -10px var(--purple-glow);
 }
 
 /* CARDS E ÍCONES LIMPOS */
@@ -350,10 +340,6 @@ a { text-decoration: none; }
     transition: var(--transition);
 }
 
-.project-card:hover .clean-icon {
-    transform: scale(1.05);
-}
-
 /* Filtro Branco para a Oliveira */
 #icon-oliveira {
     filter: brightness(0) invert(1);
@@ -362,7 +348,6 @@ a { text-decoration: none; }
 .project-card p {
     color: var(--text-gray);
     font-size: 0.95rem;
-    flex-grow: 1;
     margin-bottom: 1rem;
 }
 
@@ -371,7 +356,7 @@ a { text-decoration: none; }
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin: 1.5rem 0 1rem 0; 
+    margin: auto 0 1rem 0; /* O 'auto' aqui empurra as notas pro rodapé nos sites */
     padding-top: 1.2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -493,8 +478,9 @@ a { text-decoration: none; }
 
 .btn-project i { margin-left: 5px; }
 
-/* EXTENSÕES - CARDS ESPECIAIS */
+/* ================= EXTENSÕES - CARDS ESPECIAIS ================= */
 .extension-title { margin-top: 4rem; }
+
 .special-card {
     border: 2px solid var(--purple-primary);
     background: linear-gradient(145deg, var(--bg-secondary) 0%, #110f18 100%);
@@ -502,9 +488,15 @@ a { text-decoration: none; }
     overflow: hidden;
 }
 
+/* FIX: Trava a altura do parágrafo nos cards especiais para a lista começar na mesma linha */
+.special-card p {
+    min-height: 6.5rem; /* Altura suficiente para absorver até 4 linhas de texto */
+}
+
+/* FIX: Lista volta ao fluxo normal, sem empurrar o layout */
 .feature-list {
     list-style: none;
-    margin: 1.5rem 0;
+    margin: 0; 
     padding: 0;
 }
 
@@ -521,7 +513,12 @@ a { text-decoration: none; }
     margin-right: 5px; 
 }
 
-.special-footer { margin-top: auto; padding-top: 1rem; }
+/* FIX: O rodapé centralizado, empurrando a si mesmo pro fundo (auto) */
+.special-footer { 
+    margin-top: auto;
+    padding-top: 1.5rem; 
+    text-align: center; 
+}
 
 .btn-featured {
     background-color: var(--purple-primary);
@@ -622,9 +619,11 @@ a { text-decoration: none; }
 .logo-watermark {
     width: 100%;
     max-width: 250px;
+    height: auto; 
+    object-fit: contain; 
     opacity: 0.2; 
     filter: drop-shadow(0 0 20px var(--purple-primary)); 
-    transform: translateZ(0); /* Evita bug da sombra quadrada no Safari/Mobile */
+    transform: translateZ(0); 
     will-change: transform, filter, opacity;
     transition: var(--transition);
 }
@@ -701,7 +700,7 @@ footer {
     color: var(--text-light);
 }
 
-/* ================= BOTÃO WHATSAPP ================= */
+/* ================= BOTÃO WHATSAPP E HOVERS DE TOUCH FIX ================= */
 .whatsapp-btn {
     position: fixed;
     bottom: 30px;
@@ -718,21 +717,32 @@ footer {
     align-items: center;
     gap: 10px;
     transition: var(--transition);
-    /* FIX: Tira o flash cinza nativo de clique do iOS no touch */
     -webkit-tap-highlight-color: transparent; 
 }
 
 .whatsapp-btn i { font-size: 1.3rem; }
 
-/* FIX: O media query (hover: hover) e (pointer: fine) resolve o bug do iOS Safari
-   de manter o botão "preso" no hover após usar o botão de voltar. 
-   Ele garante que o hover só aplique em quem tem mouse e cursor de verdade. */
 @media (hover: hover) and (pointer: fine) {
     .whatsapp-btn:hover {
         background-color: #613cdb; 
         transform: translateY(-5px);
         box-shadow: 0 8px 25px var(--purple-glow);
         color: var(--text-light);
+    }
+
+    .profile-img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px var(--purple-primary);
+    }
+
+    .project-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--purple-primary);
+        box-shadow: 0 10px 30px -10px var(--purple-glow);
+    }
+    
+    .project-card:hover .clean-icon {
+        transform: scale(1.05);
     }
 }
 
@@ -762,7 +772,6 @@ footer {
     .hero-subtitle { font-size: 1.05rem; }
     .section-title { font-size: 2rem; }
     
-    /* Transforma o link do Google em um selo estático no mobile para não dar erro de loja restrita */
     .verified-badge {
         pointer-events: none;
         cursor: default;
