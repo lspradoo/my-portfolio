@@ -36,7 +36,7 @@ const translations = {
         feat1: "<strong>Smart Badge:</strong> Salva sua moeda no ícone.",
         feat2: "<strong>Conversão:</strong> Direto no botão direito.",
         feat3: "<strong>12 Moedas:</strong> USD, EUR, PLN, BTC e mais.",
-        btn_store: "Baixar Extensão <i class='fas fa-download' aria-hidden='true'></i>",
+        btn_store: "Usar no Chrome <i class='fab fa-chrome' aria-hidden='true'></i>",
         proj4_title: "SmartCase Pro (Format)",
         proj4_desc: "A mais completa ferramenta de formatação. Converta textos, limpe dados e oculte informações sensíveis. 100% local e seguro.",
         feat4_1: "<strong>Dev Tools:</strong> camelCase, snake_case.",
