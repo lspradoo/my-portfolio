@@ -30,15 +30,21 @@
                         --font-mono: 'Courier New', Courier, monospace;
                     }
                     
+                    /* Garante que o fundo sempre preencha a tela toda */
+                    html, body {
+                        background-color: var(--bg-main);
+                        min-height: 100vh;
+                        margin: 0;
+                    }
+
                     body {
                         font-family: var(--font-main);
-                        background-color: var(--bg-main);
                         color: var(--text-light);
-                        margin: 0;
                         padding: 50px 20px;
-                        line-height: 1.6;
+                        box-sizing: border-box;
                         display: flex;
                         justify-content: center;
+                        align-items: flex-start; /* Ajuda a não esticar a caixa além do necessário */
                     }
                     
                     .container {
@@ -49,6 +55,7 @@
                         border-radius: 20px;
                         border: 1px solid rgba(127, 90, 240, 0.2);
                         box-shadow: 0 15px 50px -15px rgba(127, 90, 240, 0.3);
+                        margin-bottom: 30px; /* Espaço pro final da tela */
                     }
                     
                     .header-section {
@@ -123,6 +130,12 @@
                         transform: translateY(-2px);
                     }
 
+                    /* Wrapper para não quebrar o layout se a tabela for grande */
+                    .table-wrapper {
+                        width: 100%;
+                        overflow-x: auto;
+                    }
+
                     table {
                         width: 100%;
                         border-collapse: separate;
@@ -139,6 +152,7 @@
                         letter-spacing: 1.5px;
                         border-bottom: 2px solid rgba(127, 90, 240, 0.3);
                         font-weight: 600;
+                        white-space: nowrap;
                     }
                     
                     td {
@@ -181,7 +195,6 @@
                         gap: 8px;
                     }
 
-                    /* Base Tag Estilo */
                     .hreflang-tag {
                         text-decoration: none;
                         padding: 4px 12px;
@@ -192,7 +205,6 @@
                         border: 1px solid transparent;
                     }
                     
-                    /* Cores específicas por idioma via classe dinâmica */
                     .lang-pt { border-color: rgba(43, 219, 129, 0.4); color: #2bdb81; background: rgba(43, 219, 129, 0.05); }
                     .lang-pt:hover { background: rgba(43, 219, 129, 0.15); box-shadow: 0 4px 10px rgba(43, 219, 129, 0.2); transform: translateY(-2px); }
 
@@ -236,38 +248,40 @@
                         </div>
                     </div>
                     
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Canonical URL</th>
-                                <th>Last Modified</th>
-                                <th>Alternate Versions (Hreflang)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <xsl:for-each select="sitemap:urlset/sitemap:url">
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
                                 <tr>
-                                    <td>
-                                        <a href="{sitemap:loc}" target="_blank" class="url-link">
-                                            <xsl:value-of select="sitemap:loc"/>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <span class="date-text"><xsl:value-of select="sitemap:lastmod"/></span>
-                                    </td>
-                                    <td>
-                                        <div class="tags-wrapper">
-                                            <xsl:for-each select="xhtml:link">
-                                                <a href="{@href}" target="_blank" class="hreflang-tag lang-{@hreflang}" title="Go to {@hreflang} version">
-                                                    <xsl:value-of select="@hreflang"/>
-                                                </a>
-                                            </xsl:for-each>
-                                        </div>
-                                    </td>
+                                    <th>Canonical URL</th>
+                                    <th>Last Modified</th>
+                                    <th>Alternate Versions (Hreflang)</th>
                                 </tr>
-                            </xsl:for-each>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <xsl:for-each select="sitemap:urlset/sitemap:url">
+                                    <tr>
+                                        <td>
+                                            <a href="{sitemap:loc}" target="_blank" class="url-link">
+                                                <xsl:value-of select="sitemap:loc"/>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <span class="date-text"><xsl:value-of select="sitemap:lastmod"/></span>
+                                        </td>
+                                        <td>
+                                            <div class="tags-wrapper">
+                                                <xsl:for-each select="xhtml:link">
+                                                    <a href="{@href}" target="_blank" class="hreflang-tag lang-{@hreflang}" title="Go to {@hreflang} version">
+                                                        <xsl:value-of select="@hreflang"/>
+                                                    </a>
+                                                </xsl:for-each>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </xsl:for-each>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </body>
         </html>
