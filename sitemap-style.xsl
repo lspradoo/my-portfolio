@@ -1,438 +1,275 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" 
+    xmlns:html="http://www.w3.org/TR/REC-html40"
+    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+    xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     
-    <title>Lucas Prado | Web Developer, High-Performance Website Creation & SEO</title>
+    <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
     
-    <meta name="description" content="Looking for a professional to build your website? Elite web engineering focused on fast sites (Performance 90+), top-tier SEO, and high conversion.">
-    <meta name="author" content="Lucas Prado">
-    
-    <script>
-        if (!sessionStorage.getItem('lang_redirected')) {
-            var userLang = navigator.language || navigator.userLanguage;
-            if (userLang && userLang.toLowerCase().startsWith('pt')) {
-                // Marca que já redirecionou na sessão atual para evitar loop caso o usuário volte ao EN manualmente
-                sessionStorage.setItem('lang_redirected', 'true');
-                window.location.replace('/pt/');
-            }
-        }
-    </script>
-    
-    <link rel="canonical" href="https://lucasprado.space/">
-    <link rel="alternate" hreflang="pt" href="https://lucasprado.space/pt/" />
-    <link rel="alternate" hreflang="en" href="https://lucasprado.space/" />
-    <link rel="alternate" hreflang="es" href="https://lucasprado.space/es/" />
-    <link rel="alternate" hreflang="pl" href="https://lucasprado.space/pl/" />
-    <link rel="alternate" hreflang="x-default" href="https://lucasprado.space/" />
-
-    <meta property="og:locale" content="en_US">
-    <meta property="og:title" content="Lucas Prado | High-Performance Website Creation & SEO">
-    <meta property="og:description" content="I turn code into high-conversion assets. Specialist in website creation with 100% Google-approved SEO.">
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/210725531?v=4">
-    <meta property="og:url" content="https://lucasprado.space/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Lucas Prado">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lucas Prado | High-Performance Website Creation & SEO">
-    <meta name="twitter:description" content="I turn code into high-conversion assets. Specialist in website creation with 100% Google-approved SEO.">
-    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/210725531?v=4">
-    
-    <link rel="icon" type="image/png" sizes="32x32" href="iconProjects/favicon.png">
-    <link rel="icon" type="image/png" sizes="400x400" href="iconProjects/me.png">
-    <link rel="apple-touch-icon" href="iconProjects/favicon.png">
-    
-    <meta name="theme-color" content="#0f0e17"> 
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css?v=18"> 
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Lucas Prado | Website Creation and SEO",
-      "image": "https://avatars.githubusercontent.com/u/210725531?v=4",
-      "url": "https://lucasprado.space/",
-      "telephone": "+48571090175",
-      "priceRange": "$$$",
-      "description": "Web developer and engineer focused on high-performance website creation (90+ on Lighthouse), extreme SEO optimization, and process automations for businesses.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "PL"
-      },
-      "sameAs": [
-        "https://github.com/lsprado-dev",
-        "https://br.linkedin.com/in/lsprado"
-      ],
-      "knowsAbout": ["Website Creation", "SEO", "Web Engineering", "High Performance", "Front-end Development"]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Lucas Prado",
-      "url": "https://lucasprado.space/"
-    }
-    </script>
-</head>
-<body>
-
-    <a href="#conteudo-principal" class="skip-link" style="position:absolute; left:-9999px; z-index:999; padding:1em; background-color:#7f5af0; color:#fff; text-decoration:none;">Skip to content</a>
-
-    <div class="lang-switcher">
-        <label for="lang-select" data-i18n="lang_label"><i class="fas fa-globe" aria-hidden="true"></i> Language:</label>
-        <div class="custom-select-wrapper">
-            <select id="lang-select" onchange="if(this.value === 'pt') { window.location.href = '/pt/'; } else { changeLanguage(this.value); }" aria-label="Select page language">
-                <option value="pt">Português (PT)</option>
-                <option value="en" selected>English (EN)</option>
-                <option value="es">Español (ES)</option>
-                <option value="pl">Polski (PL)</option>
-            </select>
-        </div>
-    </div>
-
-    <header class="hero">
-        <div class="container hero-content">
-            
-            <div class="profile-image-container">
-                <img src="iconProjects/profilelucas.webp" alt="Profile photo of Lucas Prado" width="200" height="200" class="profile-img">
-            </div>
-
-            <a href="https://chromewebstore.google.com/search/lucasprado.space" target="_blank" rel="noopener noreferrer" class="verified-badge" aria-label="Google Verified Developer Badge" data-i18n="verified_badge">
-                <i class="fas fa-check-circle" aria-hidden="true"></i> Google Verified Developer
-            </a>
-            
-            <h1 data-i18n="hero_title">Web Developer with a <span class="purple-text">Marketing Mindset</span>.</h1>
-            
-            <h2 class="hero-subtitle" data-i18n="hero_subtitle">High-performance website creation, browser extensions, and automations focused on solving real problems and improving the user experience.</h2>
-            
-            <p class="bio" data-i18n="hero_bio">My edge lies at the intersection of web engineering, product, and communication. I don't just build pretty interfaces. I create digital solutions focused on SEO, clarity, efficiency, and real impact.</p>
-            
-            <div class="social-links">
-                <a href="https://github.com/lsprado-dev" target="_blank" rel="noopener noreferrer" class="btn-social" aria-label="Visit my GitHub profile"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-                <a href="https://br.linkedin.com/in/lsprado" target="_blank" rel="noopener noreferrer" class="btn-social" aria-label="Visit my LinkedIn profile"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
-            </div>
-            <a href="#projetos" class="btn-cta" data-i18n="btn_projects">View projects <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
-        </div>
-    </header>
-
-    <main id="conteudo-principal">
-
-        <section id="projetos" class="projects-section">
-            <div class="container">
-                <h2 class="section-title" data-i18n="section_title">Featured projects <span class="purple-dot" aria-hidden="true">.</span></h2>
+    <xsl:template match="/">
+        <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+                <title>Advanced XML Sitemap | Lucas Prado</title>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                 
-                <h3 class="sub-section-title" data-i18n="sites_title">Websites</h3>
-                <div class="projects-grid">
+                <link rel="icon" href="/iconProjects/favicon.png" type="image/png" />
+                <link rel="apple-touch-icon" href="/iconProjects/favicon.png" />
+                
+                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+                <style type="text/css">
+                    :root {
+                        --bg-main: #0f0e17;       
+                        --bg-secondary: #1a1a2e;  
+                        --purple-primary: #7f5af0; 
+                        --purple-glow: rgba(127, 90, 240, 0.4); 
+                        --text-light: #fffffe;    
+                        --text-gray: #a7a9be;
+                        --font-main: 'Poppins', sans-serif;
+                        --font-mono: 'Courier New', Courier, monospace;
+                    }
                     
-                    <article class="project-card">
-                        <div class="card-header-clean">
-                            <img src="iconProjects/innov.png" alt="Innovative Business client logo" width="90" height="45" class="clean-icon" loading="lazy" decoding="async">
-                            <h3>Innovative Business</h3>
-                        </div>
-                        <p data-i18n="proj1_desc">Corporate website developed for an accounting firm. Focused on presenting corporate services clearly, professionally, and quickly.</p>
-                        
-                        <div class="card-scores" aria-label="Google Lighthouse audit scores for this site">
-                            <div class="score-circle-wrapper" style="--pct: 97;">
-                                <svg class="score-svg" viewBox="0 0 36 36" aria-hidden="true">
-                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="circle-score" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                </svg>
-                                <span class="score-val green">97</span>
-                                <span class="score-label" data-i18n="lbl_perf">Perf.</span>
+                    body {
+                        font-family: var(--font-main);
+                        background-color: var(--bg-main);
+                        color: var(--text-light);
+                        margin: 0;
+                        padding: 50px 20px;
+                        line-height: 1.6;
+                        display: flex;
+                        justify-content: center;
+                    }
+                    
+                    .container {
+                        width: 100%;
+                        max-width: 1100px;
+                        background: linear-gradient(145deg, var(--bg-secondary) 0%, #110f18 100%);
+                        padding: 40px;
+                        border-radius: 20px;
+                        border: 1px solid rgba(127, 90, 240, 0.2);
+                        box-shadow: 0 15px 50px -15px rgba(127, 90, 240, 0.3);
+                    }
+                    
+                    .header-section {
+                        margin-bottom: 40px;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                        padding-bottom: 30px;
+                    }
+
+                    .header-top {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        flex-wrap: wrap;
+                        gap: 20px;
+                    }
+                    
+                    h1 {
+                        color: var(--text-light);
+                        font-size: 2.5rem;
+                        margin: 0 0 10px 0;
+                        font-weight: 700;
+                        letter-spacing: -0.5px;
+                    }
+                    
+                    .purple-dot { color: var(--purple-primary); }
+                    
+                    p.desc {
+                        color: var(--text-gray);
+                        font-size: 1.05rem;
+                        margin: 0 0 20px 0;
+                    }
+                    
+                    .stats-badge {
+                        display: inline-flex;
+                        align-items: center;
+                        background: rgba(127, 90, 240, 0.1);
+                        border: 1px solid rgba(127, 90, 240, 0.3);
+                        color: var(--text-light);
+                        padding: 8px 16px;
+                        border-radius: 50px;
+                        font-size: 0.9rem;
+                        font-weight: 600;
+                    }
+                    
+                    .stats-badge span {
+                        background: var(--purple-primary);
+                        color: #fff;
+                        padding: 2px 10px;
+                        border-radius: 50px;
+                        margin-left: 10px;
+                    }
+
+                    .btn-back {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 8px;
+                        background: rgba(127, 90, 240, 0.1);
+                        color: var(--text-light);
+                        text-decoration: none;
+                        padding: 10px 24px;
+                        border-radius: 50px;
+                        font-size: 0.95rem;
+                        font-weight: 600;
+                        border: 1px solid rgba(127, 90, 240, 0.3);
+                        transition: all 0.3s ease;
+                    }
+
+                    .btn-back:hover {
+                        background: var(--purple-primary);
+                        border-color: var(--purple-primary);
+                        box-shadow: 0 4px 15px var(--purple-glow);
+                        transform: translateY(-2px);
+                    }
+
+                    table {
+                        width: 100%;
+                        border-collapse: separate;
+                        border-spacing: 0;
+                        margin-top: 20px;
+                    }
+                    
+                    th {
+                        text-align: left;
+                        padding: 15px 20px;
+                        color: var(--text-gray);
+                        font-size: 0.85rem;
+                        text-transform: uppercase;
+                        letter-spacing: 1.5px;
+                        border-bottom: 2px solid rgba(127, 90, 240, 0.3);
+                        font-weight: 600;
+                    }
+                    
+                    td {
+                        padding: 20px;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+                        vertical-align: middle;
+                        transition: background-color 0.2s;
+                    }
+                    
+                    tr:last-child td {
+                        border-bottom: none;
+                    }
+                    
+                    tr:hover td {
+                        background-color: rgba(127, 90, 240, 0.03);
+                    }
+                    
+                    .url-link {
+                        color: var(--text-light);
+                        text-decoration: none;
+                        font-weight: 600;
+                        font-size: 1rem;
+                        transition: all 0.3s ease;
+                    }
+                    
+                    .url-link:hover {
+                        color: var(--purple-primary);
+                        text-shadow: 0 0 10px var(--purple-glow);
+                    }
+                    
+                    .date-text {
+                        font-family: var(--font-mono);
+                        color: var(--text-gray);
+                        font-size: 0.9rem;
+                    }
+                    
+                    .tags-wrapper {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 8px;
+                    }
+
+                    /* Base Tag Estilo */
+                    .hreflang-tag {
+                        text-decoration: none;
+                        padding: 4px 12px;
+                        border-radius: 50px;
+                        font-size: 0.8rem;
+                        font-weight: 600;
+                        transition: all 0.2s;
+                        border: 1px solid transparent;
+                    }
+                    
+                    /* Cores específicas por idioma via classe dinâmica */
+                    .lang-pt { border-color: rgba(43, 219, 129, 0.4); color: #2bdb81; background: rgba(43, 219, 129, 0.05); }
+                    .lang-pt:hover { background: rgba(43, 219, 129, 0.15); box-shadow: 0 4px 10px rgba(43, 219, 129, 0.2); transform: translateY(-2px); }
+
+                    .lang-en { border-color: rgba(58, 134, 255, 0.4); color: #3a86ff; background: rgba(58, 134, 255, 0.05); }
+                    .lang-en:hover { background: rgba(58, 134, 255, 0.15); box-shadow: 0 4px 10px rgba(58, 134, 255, 0.2); transform: translateY(-2px); }
+
+                    .lang-es { border-color: rgba(255, 190, 11, 0.4); color: #ffbe0b; background: rgba(255, 190, 11, 0.05); }
+                    .lang-es:hover { background: rgba(255, 190, 11, 0.15); box-shadow: 0 4px 10px rgba(255, 190, 11, 0.2); transform: translateY(-2px); }
+
+                    .lang-pl { border-color: rgba(255, 0, 110, 0.4); color: #ff006e; background: rgba(255, 0, 110, 0.05); }
+                    .lang-pl:hover { background: rgba(255, 0, 110, 0.15); box-shadow: 0 4px 10px rgba(255, 0, 110, 0.2); transform: translateY(-2px); }
+
+                    .lang-x-default { border-color: rgba(167, 169, 190, 0.4); color: #a7a9be; background: rgba(167, 169, 190, 0.05); }
+                    .lang-x-default:hover { background: rgba(167, 169, 190, 0.15); box-shadow: 0 4px 10px rgba(167, 169, 190, 0.2); transform: translateY(-2px); color: #fffffe; }
+
+                    @media (max-width: 768px) {
+                        .header-top {
+                            flex-direction: column;
+                        }
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <div class="header-section">
+                        <div class="header-top">
+                            <div>
+                                <h1>XML Sitemap <span class="purple-dot">.</span></h1>
+                                <p class="desc">
+                                    Human-readable sitemap generated via XSLT.<br/> 
+                                    Engineered for advanced <strong>International SEO</strong> (Hreflang) and optimal <strong>Crawl Budget</strong>.
+                                </p>
+                                <div class="stats-badge">
+                                    Indexable URLs <span><xsl:value-of select="count(sitemap:urlset/sitemap:url)"/></span>
+                                </div>
                             </div>
-                            <div class="score-circle-wrapper" style="--pct: 94;">
-                                <svg class="score-svg" viewBox="0 0 36 36" aria-hidden="true">
-                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="circle-score" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                </svg>
-                                <span class="score-val green">94</span>
-                                <span class="score-label" data-i18n="lbl_acess">Access.</span>
-                            </div>
-                            <div class="score-circle-wrapper" style="--pct: 100;">
-                                <svg class="score-svg" viewBox="0 0 36 36" aria-hidden="true">
-                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="circle-score" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                </svg>
-                                <span class="score-val green">100</span>
-                                <span class="score-label" data-i18n="lbl_prat">Practices</span>
-                            </div>
-                            <div class="score-circle-wrapper" style="--pct: 100;">
-                                <svg class="score-svg" viewBox="0 0 36 36" aria-hidden="true">
-                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="circle-score" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                </svg>
-                                <span class="score-val green">100</span>
-                                <span class="score-label">SEO</span>
-                            </div>
-                            <div class="score-circle-wrapper avg-box">
-                                <span class="score-val purple">98</span>
-                                <span class="score-label" data-i18n="lbl_media">Average</span>
-                            </div>
-                        </div>
-                        
-                        <div class="audit-link">
-                            <a href="https://pagespeed.web.dev/analysis/https-www-innovbusiness-com-br/zbnpwslszw?form_factor=desktop" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-shield-check" aria-hidden="true"></i> <span data-i18n="lbl_fonte">Source: Google PageSpeed Insights Audit</span>
+                            
+                            <a href="https://lucasprado.space/" class="btn-back">
+                                ← Back to Website
                             </a>
                         </div>
-
-                        <div class="card-footer">
-                            <a href="https://www.innovbusiness.com.br/" target="_blank" rel="noopener noreferrer" class="btn-project" data-i18n="btn_visit" aria-label="Visit Innovative Business site in a new tab">Visit Site <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="card-header-clean">
-                            <img src="iconProjects/oliveira.png" alt="Oliveira & Sales law firm logo" width="90" height="45" class="clean-icon" id="icon-oliveira" loading="lazy" decoding="async">
-                            <h3>Oliveira & Sales</h3>
-                        </div>
-                        <p data-i18n="proj2_desc">Web platform for a law firm. Design focused on conveying legal security and facilitating direct contact with the lawyers.</p>
-                        
-                        <div class="card-scores" aria-label="Google Lighthouse audit scores for this site">
-                            <div class="score-circle-wrapper" style="--pct: 90;">
-                                <svg class="score-svg" viewBox="0 0 36 36" aria-hidden="true">
-                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="circle-score" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                </svg>
-                                <span class="score-val green">90</span>
-                                <span class="score-label" data-i18n="lbl_perf">Perf.</span>
-                            </div>
-                           <div class="score-circle-wrapper acess-oliveira" style="--pct: 96;">
-    <svg class="score-svg" viewBox="0 0 36 36" aria-hidden="true">
-        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-        <path class="circle-score" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-    </svg>
-    <span class="score-val green">96</span>
-    <span class="score-label" data-i18n="lbl_acess">Access.</span>
-</div>
-                            <div class="score-circle-wrapper" style="--pct: 100;">
-                                <svg class="score-svg" viewBox="0 0 36 36" aria-hidden="true">
-                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="circle-score" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                </svg>
-                                <span class="score-val green">100</span>
-                                <span class="score-label" data-i18n="lbl_prat">Practices</span>
-                            </div>
-                            <div class="score-circle-wrapper" style="--pct: 100;">
-                                <svg class="score-svg" viewBox="0 0 36 36" aria-hidden="true">
-                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="circle-score" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                </svg>
-                                <span class="score-val green">100</span>
-                                <span class="score-label">SEO</span>
-                            </div>
-                            <div class="score-circle-wrapper avg-box">
-                                <span class="score-val purple">97</span>
-                                <span class="score-label" data-i18n="lbl_media">Average</span>
-                            </div>
-                        </div>
-
-                        <div class="audit-link">
-                            <a href="https://pagespeed.web.dev/analysis/https-www-oliveirasales-com-br/uhrgbwrrlj?form_factor=desktop" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-shield-check" aria-hidden="true"></i> <span data-i18n="lbl_fonte">Source: Google PageSpeed Insights Audit</span>
-                            </a>
-                        </div>
-
-                        <div class="card-footer">
-                            <a href="https://www.oliveirasales.com.br/" target="_blank" rel="noopener noreferrer" class="btn-project" data-i18n="btn_visit" aria-label="Visit Oliveira & Sales site in a new tab">Visit Site <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-    <div class="card-header-clean">
-        <img src="iconProjects/equity.png" alt="Logotipo da Equity Imóveis" width="90" height="45" class="clean-icon" id="icon-equity" loading="lazy" decoding="async" style="object-fit: contain;">
-        <h3>Equity Imóveis</h3>
-    </div>
-    <p data-i18n="proj3_desc">High-end real estate agency featuring intelligent search (AJAX), market intelligence, and dynamic SEO for maximum visibility.</p>
-    
-    <div class="card-scores" aria-label="Notas de auditoria do Google Lighthouse para este site">
-        <div class="score-circle-wrapper" style="--pct: 91;">
-            <svg class="score-svg" viewBox="0 0 36 36" aria-hidden="true">
-                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path class="circle-score" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-            </svg>
-            <span class="score-val green">91</span>
-            <span class="score-label" data-i18n="lbl_perf">Perf.</span>
-        </div>
-        <div class="score-circle-wrapper acess-equity" style="--pct: 93;">
-            <svg class="score-svg" viewBox="0 0 36 36" aria-hidden="true">
-                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path class="circle-score" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-            </svg>
-            <span class="score-val green">93</span>
-            <span class="score-label" data-i18n="lbl_acess">Acess.</span>
-        </div>
-        <div class="score-circle-wrapper" style="--pct: 100;">
-            <svg class="score-svg" viewBox="0 0 36 36" aria-hidden="true">
-                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path class="circle-score" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-            </svg>
-            <span class="score-val green">100</span>
-            <span class="score-label" data-i18n="lbl_prat">Práticas</span>
-        </div>
-        <div class="score-circle-wrapper" style="--pct: 100;">
-            <svg class="score-svg" viewBox="0 0 36 36" aria-hidden="true">
-                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                <path class="circle-score" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-            </svg>
-            <span class="score-val green">100</span>
-            <span class="score-label">SEO</span>
-        </div>
-        <div class="score-circle-wrapper avg-box">
-            <span class="score-val purple">96</span>
-            <span class="score-label" data-i18n="lbl_media">Média</span>
-        </div>
-    </div>
-
-    <div class="audit-link">
-        <a href="https://pagespeed.web.dev/analysis/https-equityimov-com-br/wnu7pl0fvz?form_factor=desktop" target="_blank" rel="noopener noreferrer">
-            <i class="fas fa-shield-check" aria-hidden="true"></i> <span data-i18n="lbl_fonte">Fonte: Auditoria Google PageSpeed Insights</span>
-        </a>
-    </div>
-
-    <div class="card-footer">
-        <a href="https://equityimov.com.br/" target="_blank" rel="noopener noreferrer" class="btn-project" data-i18n="btn_visit" aria-label="Visitar o site Equity Imóveis em nova aba">Visitar Site <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-    </div>
-</article>
-
-                </div>
-
-                <h3 class="sub-section-title extension-title" data-i18n="ext_title">Browser Extensions</h3>
-                <div class="projects-grid">
-                    
-                    <article class="project-card special-card">
-                        <div class="card-header-clean">
-                            <img src="iconProjects/cotacao.png" alt="Real-Time Exchange extension icon" width="90" height="45" class="clean-icon" loading="lazy" decoding="async">
-                            <h3 data-i18n="proj3_title">Real-Time Exchange</h3>
-                        </div>
-                        <p data-i18n="proj3_desc">Tool for fast and precise access to global exchange rates, without impacting the browser.</p>
-                        <ul class="feature-list">
-                            <li data-i18n="feat1"><strong>Smart Badge:</strong> Pins your currency to the icon.</li>
-                            <li data-i18n="feat2"><strong>Conversion:</strong> Right-click context menu.</li>
-                            <li data-i18n="feat3"><strong>12 Currencies:</strong> USD, EUR, PLN, BTC and more.</li>
-                        </ul>
-                        <div class="card-footer special-footer">
-                            <a href="https://chromewebstore.google.com/detail/c%C3%A2mbio-em-tempo-real/ndkfobfkdpmlmkmnohgeibiaokgbioid" target="_blank" rel="noopener noreferrer" class="btn-project btn-featured" data-i18n="btn_store" aria-label="Add Real-Time Exchange extension to Chrome">Add to Chrome <i class="fab fa-chrome" aria-hidden="true"></i></a>
-                        </div>
-                    </article>
-
-                    <article class="project-card special-card">
-                        <div class="card-header-clean">
-                            <img src="iconProjects/smartcase.png" alt="SmartCase Pro extension icon" width="90" height="45" class="clean-icon" loading="lazy" decoding="async">
-                            <h3 data-i18n="proj4_title">SmartCase Pro (Format)</h3>
-                        </div>
-                        <p data-i18n="proj4_desc">The ultimate formatting tool. Convert text, clean data, and hide sensitive information. 100% local and secure.</p>
-                        <ul class="feature-list">
-                            <li data-i18n="feat4_1"><strong>Dev Tools:</strong> camelCase, snake_case.</li>
-                            <li data-i18n="feat4_2"><strong>Privacy:</strong> Redact data in one click.</li>
-                            <li data-i18n="feat4_3"><strong>Global:</strong> Native translation in 6 languages.</li>
-                        </ul>
-                        <div class="card-footer special-footer">
-                            <a href="https://chromewebstore.google.com/detail/smartcase-pro/gahdkojiepppdichbadjokmbccmapojh" target="_blank" rel="noopener noreferrer" class="btn-project btn-featured" data-i18n="btn_store" aria-label="Add SmartCase Pro extension to Chrome">Add to Chrome <i class="fab fa-chrome" aria-hidden="true"></i></a>
-                        </div>
-                    </article>
-
-                    <article class="project-card special-card">
-                        <div class="card-header-clean">
-                            <img src="iconProjects/polvo.png" alt="ClipOctaplus extension icon" width="90" height="45" class="clean-icon" loading="lazy" decoding="async">
-                            <h3 data-i18n="proj5_title">ClipOctaplus</h3>
-                        </div>
-                        <p data-i18n="proj5_desc">Clipboard manager focused on privacy and productivity. Saves your history 100% locally.</p>
-                        <ul class="feature-list">
-                            <li data-i18n="feat5_1"><strong>Auto-History:</strong> Saves copied texts and images.</li>
-                            <li data-i18n="feat5_2"><strong>Secure Vault:</strong> PIN-protected area for sensitive items.</li>
-                            <li data-i18n="feat5_3"><strong>Privacy First:</strong> Runs 100% offline with zero tracking.</li>
-                        </ul>
-                        <div class="card-footer special-footer">
-                            <a href="https://chromewebstore.google.com/detail/clipoctaplus/nbaknodlojgckjdkgdgolmeemiejginj" target="_blank" rel="noopener noreferrer" class="btn-project btn-featured" data-i18n="btn_store" aria-label="Add ClipOctaplus extension to Chrome">Add to Chrome <i class="fab fa-chrome" aria-hidden="true"></i></a>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="servicos" class="services-section">
-            <div class="container services-container">
-                <div class="services-content">
-                    <h2 class="section-title left-align" data-i18n="srv_title">Elevate your business <span class="purple-dot" aria-hidden="true">.</span></h2>
-                    <p class="services-desc" data-i18n="srv_desc">Whether creating a website from scratch, guaranteeing the highest SEO score so you are found on Google, or taking care of maintenance, I bring high-end engineering to your company.</p>
-                    
-                    <ul class="services-list">
-                        <li>
-                            <div>
-                                <strong data-i18n="srv_1_title">Corporate Website Creation:</strong>
-                                <span data-i18n="srv_1_desc">Custom engineering with pure code, free of heavy templates. The result? Ultra-fast platforms designed to convert real clients.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <strong data-i18n="srv_2_title">Optimization & 100% SEO:</strong>
-                                <span data-i18n="srv_2_desc">I tune your site to ace Google's tests. Optimized SEO isn't a cost, it's free, lifelong organic traffic. If you're not seen at the top, you're not remembered.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <strong data-i18n="srv_3_title">Specialized Maintenance:</strong>
-                                <span data-i18n="srv_3_desc">Your ecosystem running smoothly and securely. I offer 6 months of free technical warranty after delivery (although the structure is so solid you'll hardly need it).</span>
-                            </div>
-                        </li>
-                    </ul>
-                    
-                    <div class="services-buttons">
-                        <a href="https://wa.me/48571090175?text=Hi%20Lucas!%20I%20saw%20your%20portfolio%20on%20high-performance%20website%20creation%20and%20SEO.%20I'd%20like%20to%20chat%20about%20a%20project%20for%20my%20business." class="btn-cta btn-services dynamic-zap" target="_blank" rel="noopener noreferrer" aria-label="Talk to Lucas Prado on WhatsApp for website creation">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> <span data-i18n="btn_zap_srv">I want a High-Performance website</span>
-                        </a>
-                        
-                        <a href="https://calendly.com/lucasprado335/30min" class="btn-social btn-services" target="_blank" rel="noopener noreferrer" aria-label="Schedule strategic meeting via Calendly">
-                            <i class="fas fa-calendar-alt" aria-hidden="true"></i> <span data-i18n="btn_calendly">Schedule Strategy Meeting</span>
-                        </a>
                     </div>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Canonical URL</th>
+                                <th>Last Modified</th>
+                                <th>Alternate Versions (Hreflang)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <xsl:for-each select="sitemap:urlset/sitemap:url">
+                                <tr>
+                                    <td>
+                                        <a href="{sitemap:loc}" target="_blank" class="url-link">
+                                            <xsl:value-of select="sitemap:loc"/>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span class="date-text"><xsl:value-of select="sitemap:lastmod"/></span>
+                                    </td>
+                                    <td>
+                                        <div class="tags-wrapper">
+                                            <xsl:for-each select="xhtml:link">
+                                                <a href="{@href}" target="_blank" class="hreflang-tag lang-{@hreflang}" title="Go to {@hreflang} version">
+                                                    <xsl:value-of select="@hreflang"/>
+                                                </a>
+                                            </xsl:for-each>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </xsl:for-each>
+                        </tbody>
+                    </table>
                 </div>
-                
-                <div class="services-logo" aria-hidden="true">
-                    <img src="iconProjects/logo.png" alt="" width="250" height="250" class="logo-watermark" loading="lazy" decoding="async">
-                </div>
-            </div>
-        </section>
-
-        <section class="game-section">
-            <div class="container">
-                <h2 class="section-title" data-i18n="game_title" style="margin-bottom: 1rem;">Corgi Break <span class="purple-dot" aria-hidden="true">.</span></h2>
-                <p class="bio" data-i18n="game_desc" style="margin-bottom: 2rem;">Tired of looking at code? I made this Chrome "Dino Run" style game, but with a Corgi (because Corgis are better). Try to beat your high score!</p>
-                
-                <div class="game-container">
-                    <iframe src="/Corgi_Game/" title="Interactive Dino Run style game featuring a Corgi" scrolling="no" loading="lazy"></iframe>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="container footer-container">
-            <a href="https://share.google/iIRxqourMkBGQJ2Jk" target="_blank" rel="noopener noreferrer" class="footer-google-link" aria-label="View my verified publisher profile on Google">
-                <i class="fab fa-google" aria-hidden="true"></i> <span data-i18n="btn_google">View Google Profile</span>
-            </a>
-            
-            <p data-i18n="footer">Developed by Lucas Prado © 2026. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/48571090175?text=Hi%20Lucas!%20I%20saw%20your%20portfolio%20on%20high-performance%20website%20creation%20and%20SEO.%20I'd%20like%20to%20chat%20about%20a%20project%20for%20my%20business." class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Talk to Lucas on WhatsApp" data-i18n="whatsapp_btn">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i> Start a Project
-    </a>
-
-    <script src="script.js?v=9"></script>
-</body>
-</html>
+            </body>
+        </html>
+    </xsl:template>
+</xsl:stylesheet>
