@@ -1,24 +1,24 @@
 User-agent: *
 
-# Garante acesso total aos idiomas
+# GARANTE ACESSO TOTAL AOS IDIOMAS E À RAIZ
 Allow: /
 Allow: /en/
 Allow: /pt/
 Allow: /es/
 Allow: /pl/
 
-# PERMISSÃO ESPECIAL: Garante que CSS e JS sejam lidos, mesmo com versões (?v=)
-Allow: /*.css
-Allow: /*.js
-Allow: /style.css*
-Allow: /script.js*
+# PERMISSÃO ESPECIAL: Garante que o Google consiga renderizar o visual do site
+# O asterisco no final garante que arquivos com versão (ex: style.css?v=18) sejam lidos
+Allow: /*.css*
+Allow: /*.js*
+Allow: /iconProjects/*
 
 # BLOQUEIOS ESTRATÉGICOS
-# Mantemos o jogo bloqueado para não gastar "Crawl Budget" com código de jogo
+# Protege o "Crawl Budget" não deixando o robô perder tempo lendo o jogo
 Disallow: /Corgi_Game/
 
-# Bloqueia parâmetros de busca, mas ignora os arquivos que permitimos acima
+# Bloqueia parâmetros de URL inúteis para indexação (mas o CSS/JS acima escapam dessa regra)
 Disallow: /*?*
 
-# Sitemap
+# APONTA O MAPA DO SITE
 Sitemap: https://lucasprado.space/sitemap.xml
