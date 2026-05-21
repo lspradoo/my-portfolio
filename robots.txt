@@ -3,6 +3,7 @@ User-agent: *
 # Garante acesso total aos idiomas
 Allow: /
 Allow: /en/
+Allow: /pt/
 Allow: /es/
 Allow: /pl/
 
